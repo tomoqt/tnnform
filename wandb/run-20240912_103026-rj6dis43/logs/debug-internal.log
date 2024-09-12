@@ -22892,3 +22892,4 @@
 2024-09-12 13:30:27,129 DEBUG   HandlerThread:3418704 [handler.py:handle_request():158] handle_request: internal_messages
 2024-09-12 13:30:27,273 DEBUG   HandlerThread:3418704 [handler.py:handle_request():158] handle_request: status_report
 2024-09-12 13:30:27,359 DEBUG   SenderThread:3418704 [sender.py:send():391] send: stats
+2024-09-12 13:30:33,272 DEBUG   HandlerThread:3418704 [handler.py:handle_request():158] handle_request: status_report
