@@ -2892,3 +2892,13 @@ iter 2865: loss 0.0280, time 4783.18ms, mfu 0.06%
 iter 2866: loss 0.0197, time 4805.98ms, mfu 0.06%
 iter 2867: loss 0.0386, time 4788.47ms, mfu 0.06%
 iter 2868: loss 0.0156, time 1827.92ms, mfu 0.06%
+iter 2869: loss 0.0214, time 2670.11ms, mfu 0.07%
+iter 2870: loss 0.0134, time 4770.58ms, mfu 0.06%
+iter 2871: loss 0.0182, time 3901.90ms, mfu 0.06%
+iter 2872: loss 0.0085, time 3272.38ms, mfu 0.06%
+iter 2873: loss 0.0119, time 4130.34ms, mfu 0.06%
+iter 2874: loss 0.0163, time 4029.06ms, mfu 0.06%
+iter 2875: loss 0.0222, time 3915.04ms, mfu 0.06%
+iter 2876: loss 0.0217, time 4784.54ms, mfu 0.06%
+iter 2877: loss 0.0231, time 2225.25ms, mfu 0.06%
+iter 2878: loss 0.0241, time 3512.35ms, mfu 0.06%
