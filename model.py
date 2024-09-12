@@ -10,10 +10,12 @@ https://github.com/huggingface/transformers/blob/main/src/transformers/models/gp
 import math
 import inspect
 from dataclasses import dataclass
+import sys  # Add this import at the top of the file
 
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
+from torch.nn.utils import weight_norm
 
 class LayerNorm(nn.Module):
     """ LayerNorm but with an optional bias. PyTorch doesn't support simply bias=False """
@@ -26,53 +28,105 @@ class LayerNorm(nn.Module):
     def forward(self, input):
         return F.layer_norm(input, self.weight.shape, self.weight, self.bias, 1e-5)
 
-class CausalSelfAttention(nn.Module):
-
+class TrueHigherOrderAttention(nn.Module):
     def __init__(self, config):
         super().__init__()
         assert config.n_embd % config.n_head == 0
-        # key, query, value projections for all heads, but in a batch
-        self.c_attn = nn.Linear(config.n_embd, 3 * config.n_embd, bias=config.bias)
-        # output projection
-        self.c_proj = nn.Linear(config.n_embd, config.n_embd, bias=config.bias)
-        # regularization
-        self.attn_dropout = nn.Dropout(config.dropout)
-        self.resid_dropout = nn.Dropout(config.dropout)
+        
         self.n_head = config.n_head
         self.n_embd = config.n_embd
         self.dropout = config.dropout
-        # flash attention make GPU go brrrrr but support is only in PyTorch >= 2.0
+        self.attention_order = config.attention_order
+        self.head_dim = config.n_embd // config.n_head
+        self.scale = 1.0 / math.sqrt(self.head_dim)  # Normal scaling
+        
+        # Projections for each tensor
+        self.projections = nn.ModuleList([
+            nn.Linear(config.n_embd, config.n_embd, bias=config.bias) 
+            for _ in range(self.attention_order)
+        ])
+        
+        # Output projection
+        self.c_proj = nn.Linear(config.n_embd, config.n_embd, bias=config.bias)
+        
+        # Regularization
+        self.attn_dropout = nn.Dropout(config.dropout)
+        self.resid_dropout = nn.Dropout(config.dropout)
+        
+        # Flash attention support
         self.flash = hasattr(torch.nn.functional, 'scaled_dot_product_attention')
         if not self.flash:
             print("WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0")
-            # causal mask to ensure that attention is only applied to the left in the input sequence
             self.register_buffer("bias", torch.tril(torch.ones(config.block_size, config.block_size))
                                         .view(1, 1, config.block_size, config.block_size))
 
     def forward(self, x):
-        B, T, C = x.size() # batch size, sequence length, embedding dimensionality (n_embd)
-
-        # calculate query, key, values for all heads in batch and move head forward to be the batch dim
-        q, k, v  = self.c_attn(x).split(self.n_embd, dim=2)
-        k = k.view(B, T, self.n_head, C // self.n_head).transpose(1, 2) # (B, nh, T, hs)
-        q = q.view(B, T, self.n_head, C // self.n_head).transpose(1, 2) # (B, nh, T, hs)
-        v = v.view(B, T, self.n_head, C // self.n_head).transpose(1, 2) # (B, nh, T, hs)
-
-        # causal self-attention; Self-attend: (B, nh, T, hs) x (B, nh, hs, T) -> (B, nh, T, T)
-        if self.flash:
-            # efficient attention using Flash Attention CUDA kernels
-            y = torch.nn.functional.scaled_dot_product_attention(q, k, v, attn_mask=None, dropout_p=self.dropout if self.training else 0, is_causal=True)
-        else:
-            # manual implementation of attention
-            att = (q @ k.transpose(-2, -1)) * (1.0 / math.sqrt(k.size(-1)))
-            att = att.masked_fill(self.bias[:,:,:T,:T] == 0, float('-inf'))
-            att = F.softmax(att, dim=-1)
-            att = self.attn_dropout(att)
-            y = att @ v # (B, nh, T, T) x (B, nh, T, hs) -> (B, nh, T, hs)
-        y = y.transpose(1, 2).contiguous().view(B, T, C) # re-assemble all head outputs side by side
-
-        # output projection
+        B, T, C = x.size()  # batch size, sequence length, embedding dimensionality (n_embd)
+        
+        if torch.isnan(x).any():
+            print("NaN detected in TrueHigherOrderAttention input")
+            sys.exit(1)
+        
+        projs = [proj(x).view(B, T, self.n_head, self.head_dim).permute(0, 2, 1, 3) 
+                 for proj in self.projections]
+        
+        for i, proj in enumerate(projs):
+            if torch.isnan(proj).any():
+                print(f"NaN detected in projection {i}")
+                sys.exit(1)
+        
+        y = self.true_higher_order_attention(projs)
+        
+        if torch.isnan(y).any():
+            print("NaN detected in attention output")
+            sys.exit(1)
+        
+        y = y.transpose(1, 2).contiguous().view(B, T, C)
         y = self.resid_dropout(self.c_proj(y))
+        
+        if torch.isnan(y).any():
+            print("NaN detected in TrueHigherOrderAttention final output")
+            sys.exit(1)
+        
+        return y
+
+    def true_higher_order_attention(self, projs):
+        B, nh, T, hs = projs[0].shape
+        
+        # Construct einsum equation for n-dimensional contraction
+        input_dims = ''.join([chr(ord('i') + i) for i in range(self.attention_order)])
+        eq = f"{''.join([f'bh{c}d,' for c in input_dims])[:-1]}->bh{input_dims}"
+        
+        # Perform n-dimensional contraction
+        att = torch.einsum(eq, *projs) * self.scale
+        
+        if torch.isnan(att).any():
+            print("NaN detected in attention scores")
+            sys.exit(1)
+        
+        # Apply causal mask (if needed)
+        mask = torch.tril(torch.ones(T, T, device=projs[0].device)).view(1, 1, *[T if i < 2 else 1 for i in range(self.attention_order)])
+        att = att.masked_fill(mask == 0, float('-inf'))
+        
+        # Apply softmax across the last 'attention_order' dimensions
+        att = att.reshape(*att.shape[:-self.attention_order], -1)
+        att = F.softmax(att, dim=-1)
+        att = att.reshape(*projs[0].shape[:2], *([T] * self.attention_order))
+        
+        if torch.isnan(att).any():
+            print("NaN detected after softmax")
+            sys.exit(1)
+        
+        att = self.attn_dropout(att)
+        
+        # Final contraction to produce output
+        output_eq = f"bh{input_dims},bh{input_dims[-1]}d->bhid"
+        y = torch.einsum(output_eq, att, projs[-1])
+        
+        if torch.isnan(y).any():
+            print("NaN detected in final attention output")
+            sys.exit(1)
+        
         return y
 
 class MLP(nn.Module):
@@ -96,13 +150,45 @@ class Block(nn.Module):
     def __init__(self, config):
         super().__init__()
         self.ln_1 = LayerNorm(config.n_embd, bias=config.bias)
-        self.attn = CausalSelfAttention(config)
+        self.attn = TrueHigherOrderAttention(config)
         self.ln_2 = LayerNorm(config.n_embd, bias=config.bias)
         self.mlp = MLP(config)
 
     def forward(self, x):
-        x = x + self.attn(self.ln_1(x))
-        x = x + self.mlp(self.ln_2(x))
+        if torch.isnan(x).any():
+            print("NaN detected in Block input")
+            sys.exit(1)
+        
+        attn_input = self.ln_1(x)
+        if torch.isnan(attn_input).any():
+            print("NaN detected after first layer norm")
+            sys.exit(1)
+        
+        attn_output = self.attn(attn_input)
+        if torch.isnan(attn_output).any():
+            print("NaN detected after attention")
+            sys.exit(1)
+        
+        x = x + attn_output
+        if torch.isnan(x).any():
+            print("NaN detected after first residual connection")
+            sys.exit(1)
+        
+        mlp_input = self.ln_2(x)
+        if torch.isnan(mlp_input).any():
+            print("NaN detected after second layer norm")
+            sys.exit(1)
+        
+        mlp_output = self.mlp(mlp_input)
+        if torch.isnan(mlp_output).any():
+            print("NaN detected after MLP")
+            sys.exit(1)
+        
+        x = x + mlp_output
+        if torch.isnan(x).any():
+            print("NaN detected in Block final output")
+            sys.exit(1)
+        
         return x
 
 @dataclass
@@ -114,6 +200,7 @@ class GPTConfig:
     n_embd: int = 768
     dropout: float = 0.0
     bias: bool = True # True: bias in Linears and LayerNorms, like GPT-2. False: a bit better and faster
+    attention_order: int = 3  # New parameter for attention order
 
 class GPT(nn.Module):
 

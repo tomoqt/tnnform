@@ -1,0 +1,38 @@
+Number of parameters: 123,587,328
+Attention order: 3
+step 0: train loss 10.9232, val loss 10.9284
+Traceback (most recent call last):
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/train.py", line 304, in <module>
+    logits, loss = model(X, Y)
+                   ^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/model.py", line 268, in forward
+    x = block(x)
+        ^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/model.py", line 167, in forward
+    attn_output = self.attn(attn_input)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/model.py", line 78, in forward
+    y = self.true_higher_order_attention(projs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/model.py", line 101, in true_higher_order_attention
+    att = torch.einsum(eq, *projs) * self.scale
+          ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.00 GiB. GPU 0 has a total capacity of 14.58 GiB of which 1.43 GiB is free. Including non-PyTorch memory, this process has 13.03 GiB memory in use. Of the allocated memory 10.28 GiB is allocated by PyTorch, and 2.63 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

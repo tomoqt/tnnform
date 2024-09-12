@@ -1,0 +1,67 @@
+Number of parameters: 10,646,784
+Attention order: 3
+step 0: train loss 4.2771, val loss 4.2721
+iter 0: loss 4.2544, time 44438.21ms, mfu -100.00%
+iter 1: loss 4.2420, time 52152.92ms, mfu -100.00%
+iter 2: loss 4.2045, time 50464.79ms, mfu -100.00%
+iter 3: loss 3.9697, time 57117.61ms, mfu -100.00%
+iter 4: loss 3.8237, time 49064.27ms, mfu -100.00%
+step 5: train loss 3.4938, val loss 3.5108
+saving checkpoint to out-shakespeare-char
+iter 5: loss 3.7521, time 63895.63ms, mfu 0.01%
+iter 6: loss 3.4290, time 53584.24ms, mfu 0.01%
+iter 7: loss 3.3520, time 52710.32ms, mfu 0.01%
+iter 8: loss 3.3788, time 52933.65ms, mfu 0.01%
+iter 9: loss 3.2939, time 49454.43ms, mfu 0.01%
+step 10: train loss 3.0438, val loss 3.0616
+saving checkpoint to out-shakespeare-char
+iter 10: loss 3.1576, time 65587.93ms, mfu 0.01%
+iter 11: loss 2.9959, time 52036.58ms, mfu 0.01%
+iter 12: loss 3.0097, time 51274.08ms, mfu 0.01%
+iter 13: loss 2.9520, time 47433.31ms, mfu 0.01%
+iter 14: loss 2.9399, time 56069.63ms, mfu 0.01%
+step 15: train loss 2.8708, val loss 2.8722
+saving checkpoint to out-shakespeare-char
+iter 15: loss 2.9534, time 61428.06ms, mfu 0.01%
+iter 16: loss 2.7965, time 51211.99ms, mfu 0.01%
+iter 17: loss 2.8075, time 48644.77ms, mfu 0.01%
+iter 18: loss 2.8515, time 52297.47ms, mfu 0.01%
+iter 19: loss 2.7425, time 53236.34ms, mfu 0.01%
+step 20: train loss 2.7146, val loss 2.7001
+saving checkpoint to out-shakespeare-char
+iter 20: loss 2.7943, time 64776.66ms, mfu 0.01%
+iter 21: loss 2.7106, time 49463.58ms, mfu 0.01%
+iter 22: loss 2.8503, time 53122.27ms, mfu 0.01%
+iter 23: loss 2.5600, time 52086.07ms, mfu 0.01%
+Traceback (most recent call last):
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/train.py", line 304, in <module>
+    logits, loss = model(X, Y)
+                   ^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/model.py", line 268, in forward
+    x = block(x)
+        ^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/model.py", line 167, in forward
+    attn_output = self.attn(attn_input)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/model.py", line 80, in forward
+    if torch.isnan(y).any():
+       ^^^^^^^^^^^^^^
+KeyboardInterrupt

@@ -1,0 +1,25 @@
+2024-09-11 19:48:51,609 INFO    MainThread:3306917 [wandb_setup.py:_flush():77] Current SDK version is 0.17.9
+2024-09-11 19:48:51,609 INFO    MainThread:3306917 [wandb_setup.py:_flush():77] Configure stats pid to 3306917
+2024-09-11 19:48:51,609 INFO    MainThread:3306917 [wandb_setup.py:_flush():77] Loading settings from /home/consorzio/.config/wandb/settings
+2024-09-11 19:48:51,609 INFO    MainThread:3306917 [wandb_setup.py:_flush():77] Loading settings from /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/settings
+2024-09-11 19:48:51,609 INFO    MainThread:3306917 [wandb_setup.py:_flush():77] Loading settings from environment variables: {}
+2024-09-11 19:48:51,609 INFO    MainThread:3306917 [wandb_setup.py:_flush():77] Applying setup settings: {'_disable_service': False}
+2024-09-11 19:48:51,609 INFO    MainThread:3306917 [wandb_setup.py:_flush():77] Inferring run settings from compute environment: {'program_relpath': 'train.py', 'program_abspath': '/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/train.py', 'program': '/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/train.py'}
+2024-09-11 19:48:51,609 INFO    MainThread:3306917 [wandb_setup.py:_flush():77] Applying login settings: {}
+2024-09-11 19:48:51,609 INFO    MainThread:3306917 [wandb_init.py:_log_setup():524] Logging user logs to /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_194851-6lwumnup/logs/debug.log
+2024-09-11 19:48:51,609 INFO    MainThread:3306917 [wandb_init.py:_log_setup():525] Logging internal logs to /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_194851-6lwumnup/logs/debug-internal.log
+2024-09-11 19:48:51,609 INFO    MainThread:3306917 [wandb_init.py:init():608] calling init triggers
+2024-09-11 19:48:51,610 INFO    MainThread:3306917 [wandb_init.py:init():615] wandb.init called with sweep_config: {}
+config: {'out_dir': 'out-shakespeare-char', 'eval_interval': 5, 'log_interval': 1, 'eval_iters': 20, 'eval_only': False, 'always_save_checkpoint': False, 'init_from': 'scratch', 'wandb_log': True, 'wandb_project': 'shakespeare-char-higher-order', 'wandb_run_name': 'higher-order-gpt', 'wandb_log_freq': 5, 'dataset': 'shakespeare_char', 'gradient_accumulation_steps': 1, 'batch_size': 64, 'block_size': 256, 'n_layer': 6, 'n_head': 6, 'n_embd': 384, 'dropout': 0.2, 'bias': False, 'attention_order': 3, 'learning_rate': 0.001, 'max_iters': 5000, 'weight_decay': 0.1, 'beta1': 0.9, 'beta2': 0.99, 'grad_clip': 1.0, 'decay_lr': True, 'warmup_iters': 100, 'lr_decay_iters': 5000, 'min_lr': 0.0001, 'backend': 'nccl', 'device': 'cuda', 'dtype': 'float16', 'compile': False}
+2024-09-11 19:48:51,610 INFO    MainThread:3306917 [wandb_init.py:init():658] starting backend
+2024-09-11 19:48:51,610 INFO    MainThread:3306917 [wandb_init.py:init():662] setting up manager
+2024-09-11 19:48:51,611 INFO    MainThread:3306917 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-09-11 19:48:51,612 INFO    MainThread:3306917 [wandb_init.py:init():670] backend started and connected
+2024-09-11 19:48:51,614 INFO    MainThread:3306917 [wandb_init.py:init():768] updated telemetry
+2024-09-11 19:48:51,619 INFO    MainThread:3306917 [wandb_init.py:init():801] communicating run to backend with 90.0 second timeout
+2024-09-11 19:48:52,087 INFO    MainThread:3306917 [wandb_init.py:init():852] starting run threads in backend
+2024-09-11 19:48:52,235 INFO    MainThread:3306917 [wandb_run.py:_console_start():2465] atexit reg
+2024-09-11 19:48:52,235 INFO    MainThread:3306917 [wandb_run.py:_redirect():2311] redirect: wrap_raw
+2024-09-11 19:48:52,235 INFO    MainThread:3306917 [wandb_run.py:_redirect():2376] Wrapping output streams.
+2024-09-11 19:48:52,235 INFO    MainThread:3306917 [wandb_run.py:_redirect():2401] Redirects installed.
+2024-09-11 19:48:52,237 INFO    MainThread:3306917 [wandb_init.py:init():895] run started, returning control to user process

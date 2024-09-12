@@ -1,0 +1,277 @@
+2024-09-11 21:16:29,534 INFO    StreamThr :3317886 [internal.py:wandb_internal():85] W&B internal server running at pid: 3317886, started at: 2024-09-11 21:16:29.534249
+2024-09-11 21:16:29,536 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status
+2024-09-11 21:16:29,539 INFO    WriterThread:3317886 [datastore.py:open_for_write():87] open: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/run-fg1pldn9.wandb
+2024-09-11 21:16:29,539 DEBUG   SenderThread:3317886 [sender.py:send():391] send: header
+2024-09-11 21:16:29,542 DEBUG   SenderThread:3317886 [sender.py:send():391] send: run
+2024-09-11 21:16:29,933 INFO    SenderThread:3317886 [dir_watcher.py:__init__():211] watching files in: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files
+2024-09-11 21:16:29,933 INFO    SenderThread:3317886 [sender.py:_start_run_threads():1200] run started: fg1pldn9 with start time 1726082189.53425
+2024-09-11 21:16:29,947 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: run_start
+2024-09-11 21:16:29,976 DEBUG   HandlerThread:3317886 [system_info.py:__init__():26] System info init
+2024-09-11 21:16:29,976 DEBUG   HandlerThread:3317886 [system_info.py:__init__():41] System info init done
+2024-09-11 21:16:29,976 INFO    HandlerThread:3317886 [system_monitor.py:start():194] Starting system monitor
+2024-09-11 21:16:29,976 INFO    SystemMonitor:3317886 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-09-11 21:16:29,976 INFO    HandlerThread:3317886 [system_monitor.py:probe():214] Collecting system info
+2024-09-11 21:16:29,977 INFO    SystemMonitor:3317886 [interfaces.py:start():188] Started cpu monitoring
+2024-09-11 21:16:29,977 INFO    SystemMonitor:3317886 [interfaces.py:start():188] Started disk monitoring
+2024-09-11 21:16:29,978 INFO    SystemMonitor:3317886 [interfaces.py:start():188] Started gpu monitoring
+2024-09-11 21:16:29,979 INFO    SystemMonitor:3317886 [interfaces.py:start():188] Started memory monitoring
+2024-09-11 21:16:29,980 INFO    SystemMonitor:3317886 [interfaces.py:start():188] Started network monitoring
+2024-09-11 21:16:30,014 DEBUG   HandlerThread:3317886 [system_info.py:probe():152] Probing system
+2024-09-11 21:16:30,016 DEBUG   HandlerThread:3317886 [system_info.py:_probe_git():137] Probing git
+2024-09-11 21:16:30,021 DEBUG   HandlerThread:3317886 [system_info.py:_probe_git():145] Probing git done
+2024-09-11 21:16:30,021 DEBUG   HandlerThread:3317886 [system_info.py:probe():200] Probing system done
+2024-09-11 21:16:30,021 DEBUG   HandlerThread:3317886 [system_monitor.py:probe():223] {'os': 'Linux-4.18.0-513.11.1.el8_9.x86_64-x86_64-with-glibc2.28', 'python': '3.12.3', 'heartbeatAt': '2024-09-11T19:16:30.014484', 'startedAt': '2024-09-11T19:16:29.530238', 'docker': None, 'cuda': None, 'args': ('config/higher_order.py',), 'state': 'running', 'program': '/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/karpathy/nanoGPT.git', 'commit': '9755682b981a45507f6eb9b11eadef8cb83cebd5'}, 'email': 'francesco.pappone99@gmail.com', 'root': '/home/consorzio/Technoscience/Research/TNNformers/nanoGPT', 'host': 'localhost.localdomain', 'username': 'consorzio', 'executable': '/home/consorzio/Technoscience/Research/TNNformers/venv/bin/python', 'cpu_count': 32, 'cpu_count_logical': 64, 'cpu_freq': {'current': 2107.5224375, 'min': 800.0, 'max': 3200.0}, 'cpu_freq_per_core': [{'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2921.731, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}, {'current': 2100.0, 'min': 800.0, 'max': 3200.0}], 'disk': {'/': {'total': 69.9658203125, 'used': 43.98842239379883}}, 'gpu': 'Tesla T4', 'gpu_count': 1, 'gpu_devices': [{'name': 'Tesla T4', 'memory_total': 16106127360}], 'memory': {'total': 188.0313949584961}}
+2024-09-11 21:16:30,021 INFO    HandlerThread:3317886 [system_monitor.py:probe():224] Finished collecting system info
+2024-09-11 21:16:30,021 INFO    HandlerThread:3317886 [system_monitor.py:probe():227] Publishing system info
+2024-09-11 21:16:30,022 INFO    HandlerThread:3317886 [system_monitor.py:probe():229] Finished publishing system info
+2024-09-11 21:16:30,024 DEBUG   SenderThread:3317886 [sender.py:send():391] send: files
+2024-09-11 21:16:30,024 INFO    SenderThread:3317886 [sender.py:_save_file():1466] saving file wandb-metadata.json with policy now
+2024-09-11 21:16:30,091 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: python_packages
+2024-09-11 21:16:30,091 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: python_packages
+2024-09-11 21:16:30,092 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-11 21:16:30,092 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: stop_status
+2024-09-11 21:16:30,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:16:30,134 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-11 21:16:30,300 DEBUG   SenderThread:3317886 [sender.py:send():391] send: telemetry
+2024-09-11 21:16:30,300 DEBUG   SenderThread:3317886 [sender.py:send():391] send: history
+2024-09-11 21:16:30,300 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: summary_record
+2024-09-11 21:16:30,301 INFO    SenderThread:3317886 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-11 21:16:30,638 INFO    wandb-upload_0:3317886 [upload_job.py:push():130] Uploaded file /tmp/tmpht15fwbmwandb/xn2as163-wandb-metadata.json
+2024-09-11 21:16:30,935 INFO    Thread-12 :3317886 [dir_watcher.py:_on_file_created():271] file/dir created: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/wandb-metadata.json
+2024-09-11 21:16:30,936 INFO    Thread-12 :3317886 [dir_watcher.py:_on_file_created():271] file/dir created: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/output.log
+2024-09-11 21:16:30,936 INFO    Thread-12 :3317886 [dir_watcher.py:_on_file_created():271] file/dir created: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/wandb-summary.json
+2024-09-11 21:16:30,936 INFO    Thread-12 :3317886 [dir_watcher.py:_on_file_created():271] file/dir created: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/requirements.txt
+2024-09-11 21:16:32,934 INFO    Thread-12 :3317886 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/output.log
+2024-09-11 21:16:35,092 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:16:40,092 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:16:40,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:16:45,092 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-11 21:16:45,092 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: stop_status
+2024-09-11 21:16:45,306 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:16:50,092 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:16:51,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:16:57,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:17:00,092 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-11 21:17:00,092 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: stop_status
+2024-09-11 21:17:00,132 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:17:02,333 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:17:02,941 INFO    Thread-12 :3317886 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/config.yaml
+2024-09-11 21:17:08,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:17:10,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:17:13,094 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:17:15,092 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-11 21:17:15,092 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: stop_status
+2024-09-11 21:17:18,344 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:17:20,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:17:24,094 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:17:29,094 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:17:29,980 DEBUG   SystemMonitor:3317886 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-09-11 21:17:29,981 DEBUG   SenderThread:3317886 [sender.py:send():391] send: stats
+2024-09-11 21:17:30,092 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-11 21:17:30,092 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: stop_status
+2024-09-11 21:17:30,132 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:17:34,251 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:17:40,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:17:40,094 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:17:45,092 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-11 21:17:45,093 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: stop_status
+2024-09-11 21:17:45,275 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:17:50,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:17:51,094 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:17:56,095 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:17:59,982 DEBUG   SenderThread:3317886 [sender.py:send():391] send: stats
+2024-09-11 21:18:00,092 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-11 21:18:00,093 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: stop_status
+2024-09-11 21:18:00,133 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:18:01,348 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:18:07,096 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:18:10,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:18:13,095 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:18:15,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-11 21:18:15,093 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: stop_status
+2024-09-11 21:18:18,258 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:18:20,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:18:24,095 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:18:29,096 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:18:29,984 DEBUG   SenderThread:3317886 [sender.py:send():391] send: stats
+2024-09-11 21:18:30,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-11 21:18:30,093 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: stop_status
+2024-09-11 21:18:30,133 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:18:34,306 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:18:40,094 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:18:40,096 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:18:45,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-11 21:18:45,093 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: stop_status
+2024-09-11 21:18:45,310 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:18:50,094 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:18:51,096 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:18:56,096 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:18:59,985 DEBUG   SenderThread:3317886 [sender.py:send():391] send: stats
+2024-09-11 21:19:00,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-11 21:19:00,093 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: stop_status
+2024-09-11 21:19:00,133 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:19:01,320 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:19:07,097 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:19:10,094 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:19:13,097 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:19:15,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-11 21:19:15,093 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: stop_status
+2024-09-11 21:19:18,330 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:19:20,094 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:19:24,097 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:19:29,097 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:19:29,986 DEBUG   SenderThread:3317886 [sender.py:send():391] send: stats
+2024-09-11 21:19:30,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-11 21:19:30,094 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: stop_status
+2024-09-11 21:19:30,133 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:19:34,348 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:19:40,094 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:19:40,097 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:19:45,093 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-11 21:19:45,094 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: stop_status
+2024-09-11 21:19:45,317 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:19:46,726 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-11 21:19:46,727 DEBUG   SenderThread:3317886 [sender.py:send():391] send: history
+2024-09-11 21:19:46,727 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: summary_record
+2024-09-11 21:19:46,728 INFO    SenderThread:3317886 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-11 21:19:46,979 INFO    Thread-12 :3317886 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/wandb-summary.json
+2024-09-11 21:19:47,301 DEBUG   SenderThread:3317886 [sender.py:send():391] send: exit
+2024-09-11 21:19:47,301 INFO    SenderThread:3317886 [sender.py:send_exit():598] handling exit code: 1
+2024-09-11 21:19:47,301 INFO    SenderThread:3317886 [sender.py:send_exit():600] handling runtime: 197
+2024-09-11 21:19:47,302 INFO    SenderThread:3317886 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-11 21:19:47,302 INFO    SenderThread:3317886 [sender.py:send_exit():606] send defer
+2024-09-11 21:19:47,302 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:47,302 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 0
+2024-09-11 21:19:47,302 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:47,302 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 0
+2024-09-11 21:19:47,302 INFO    SenderThread:3317886 [sender.py:transition_state():626] send defer: 1
+2024-09-11 21:19:47,302 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:47,302 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 1
+2024-09-11 21:19:47,302 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:47,302 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 1
+2024-09-11 21:19:47,302 INFO    SenderThread:3317886 [sender.py:transition_state():626] send defer: 2
+2024-09-11 21:19:47,303 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:47,303 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 2
+2024-09-11 21:19:47,303 INFO    HandlerThread:3317886 [system_monitor.py:finish():203] Stopping system monitor
+2024-09-11 21:19:47,303 INFO    HandlerThread:3317886 [interfaces.py:finish():200] Joined cpu monitor
+2024-09-11 21:19:47,303 DEBUG   SystemMonitor:3317886 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-09-11 21:19:47,303 INFO    HandlerThread:3317886 [interfaces.py:finish():200] Joined disk monitor
+2024-09-11 21:19:47,304 DEBUG   SystemMonitor:3317886 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-09-11 21:19:47,404 INFO    HandlerThread:3317886 [interfaces.py:finish():200] Joined gpu monitor
+2024-09-11 21:19:47,404 INFO    HandlerThread:3317886 [interfaces.py:finish():200] Joined memory monitor
+2024-09-11 21:19:47,405 INFO    HandlerThread:3317886 [interfaces.py:finish():200] Joined network monitor
+2024-09-11 21:19:47,405 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:47,405 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 2
+2024-09-11 21:19:47,405 INFO    SenderThread:3317886 [sender.py:transition_state():626] send defer: 3
+2024-09-11 21:19:47,405 DEBUG   SenderThread:3317886 [sender.py:send():391] send: stats
+2024-09-11 21:19:47,406 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:47,406 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 3
+2024-09-11 21:19:47,406 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:47,406 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 3
+2024-09-11 21:19:47,406 INFO    SenderThread:3317886 [sender.py:transition_state():626] send defer: 4
+2024-09-11 21:19:47,406 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:47,406 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 4
+2024-09-11 21:19:47,406 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:47,406 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 4
+2024-09-11 21:19:47,406 INFO    SenderThread:3317886 [sender.py:transition_state():626] send defer: 5
+2024-09-11 21:19:47,406 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:47,406 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 5
+2024-09-11 21:19:47,406 DEBUG   SenderThread:3317886 [sender.py:send():391] send: summary
+2024-09-11 21:19:47,407 INFO    SenderThread:3317886 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-11 21:19:47,407 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:47,407 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 5
+2024-09-11 21:19:47,407 INFO    SenderThread:3317886 [sender.py:transition_state():626] send defer: 6
+2024-09-11 21:19:47,407 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:47,407 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 6
+2024-09-11 21:19:47,407 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:47,407 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 6
+2024-09-11 21:19:47,407 INFO    SenderThread:3317886 [sender.py:transition_state():626] send defer: 7
+2024-09-11 21:19:47,407 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: status_report
+2024-09-11 21:19:47,407 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:47,407 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 7
+2024-09-11 21:19:47,408 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:47,408 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 7
+2024-09-11 21:19:47,980 INFO    Thread-12 :3317886 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/wandb-summary.json
+2024-09-11 21:19:48,302 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: poll_exit
+2024-09-11 21:19:48,981 INFO    Thread-12 :3317886 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/output.log
+2024-09-11 21:19:49,305 INFO    SenderThread:3317886 [sender.py:transition_state():626] send defer: 8
+2024-09-11 21:19:49,305 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: poll_exit
+2024-09-11 21:19:49,305 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:49,305 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 8
+2024-09-11 21:19:49,306 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:49,306 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 8
+2024-09-11 21:19:49,306 INFO    SenderThread:3317886 [job_builder.py:build():443] Attempting to build job artifact
+2024-09-11 21:19:49,306 INFO    SenderThread:3317886 [job_builder.py:_get_source_type():572] is repo sourced job
+2024-09-11 21:19:49,326 INFO    SenderThread:3317886 [job_builder.py:build():548] adding wandb-job metadata file
+2024-09-11 21:19:49,328 INFO    SenderThread:3317886 [sender.py:transition_state():626] send defer: 9
+2024-09-11 21:19:49,328 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:49,328 DEBUG   SenderThread:3317886 [sender.py:send():391] send: artifact
+2024-09-11 21:19:49,328 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 9
+2024-09-11 21:19:49,981 INFO    Thread-12 :3317886 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/output.log
+2024-09-11 21:19:50,136 INFO    SenderThread:3317886 [sender.py:send_artifact():1549] sent artifact job-https___github.com_karpathy_nanoGPT.git_train.py - {'id': 'QXJ0aWZhY3Q6MTIxNTkxODgwNA==', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjQ0NzE4MTQ3NA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MTIxNjE0MzE0OA==', 'versionIndex': 5}}}
+2024-09-11 21:19:50,136 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:50,136 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 9
+2024-09-11 21:19:50,136 INFO    SenderThread:3317886 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-09-11 21:19:50,305 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: poll_exit
+2024-09-11 21:19:50,982 INFO    SenderThread:3317886 [dir_watcher.py:finish():388] scan: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files
+2024-09-11 21:19:50,982 INFO    SenderThread:3317886 [dir_watcher.py:finish():402] scan save: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/config.yaml config.yaml
+2024-09-11 21:19:50,982 INFO    SenderThread:3317886 [dir_watcher.py:finish():402] scan save: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/wandb-metadata.json wandb-metadata.json
+2024-09-11 21:19:50,982 INFO    SenderThread:3317886 [dir_watcher.py:finish():402] scan save: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/requirements.txt requirements.txt
+2024-09-11 21:19:50,983 INFO    SenderThread:3317886 [dir_watcher.py:finish():402] scan save: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/output.log output.log
+2024-09-11 21:19:50,983 INFO    SenderThread:3317886 [dir_watcher.py:finish():402] scan save: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/wandb-summary.json wandb-summary.json
+2024-09-11 21:19:50,983 INFO    SenderThread:3317886 [sender.py:transition_state():626] send defer: 10
+2024-09-11 21:19:50,983 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: poll_exit
+2024-09-11 21:19:50,986 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:50,988 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 10
+2024-09-11 21:19:50,990 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:50,990 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 10
+2024-09-11 21:19:50,990 INFO    SenderThread:3317886 [file_pusher.py:finish():169] shutting down file pusher
+2024-09-11 21:19:51,306 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: poll_exit
+2024-09-11 21:19:51,307 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: poll_exit
+2024-09-11 21:19:51,368 INFO    wandb-upload_0:3317886 [upload_job.py:push():130] Uploaded file /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/config.yaml
+2024-09-11 21:19:51,424 INFO    wandb-upload_1:3317886 [upload_job.py:push():130] Uploaded file /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/requirements.txt
+2024-09-11 21:19:51,478 INFO    wandb-upload_3:3317886 [upload_job.py:push():130] Uploaded file /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/wandb-summary.json
+2024-09-11 21:19:51,488 INFO    wandb-upload_2:3317886 [upload_job.py:push():130] Uploaded file /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/files/output.log
+2024-09-11 21:19:51,689 INFO    Thread-11 (_thread_body):3317886 [sender.py:transition_state():626] send defer: 11
+2024-09-11 21:19:51,689 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:51,689 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 11
+2024-09-11 21:19:51,690 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:51,690 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 11
+2024-09-11 21:19:51,690 INFO    SenderThread:3317886 [file_pusher.py:join():175] waiting for file pusher
+2024-09-11 21:19:51,690 INFO    SenderThread:3317886 [sender.py:transition_state():626] send defer: 12
+2024-09-11 21:19:51,690 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:51,690 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 12
+2024-09-11 21:19:51,690 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:51,691 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 12
+2024-09-11 21:19:51,691 INFO    SenderThread:3317886 [file_stream.py:finish():601] file stream finish called
+2024-09-11 21:19:52,201 INFO    SenderThread:3317886 [file_stream.py:finish():605] file stream finish is done
+2024-09-11 21:19:52,201 INFO    SenderThread:3317886 [sender.py:transition_state():626] send defer: 13
+2024-09-11 21:19:52,201 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:52,201 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 13
+2024-09-11 21:19:52,201 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:52,201 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 13
+2024-09-11 21:19:52,201 INFO    SenderThread:3317886 [sender.py:transition_state():626] send defer: 14
+2024-09-11 21:19:52,202 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: defer
+2024-09-11 21:19:52,202 INFO    HandlerThread:3317886 [handler.py:handle_request_defer():184] handle defer: 14
+2024-09-11 21:19:52,202 DEBUG   SenderThread:3317886 [sender.py:send():391] send: final
+2024-09-11 21:19:52,202 DEBUG   SenderThread:3317886 [sender.py:send():391] send: footer
+2024-09-11 21:19:52,202 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: defer
+2024-09-11 21:19:52,202 INFO    SenderThread:3317886 [sender.py:send_request_defer():622] handle sender defer: 14
+2024-09-11 21:19:52,203 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: poll_exit
+2024-09-11 21:19:52,203 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: poll_exit
+2024-09-11 21:19:52,203 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: server_info
+2024-09-11 21:19:52,203 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: poll_exit
+2024-09-11 21:19:52,204 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: server_info
+2024-09-11 21:19:52,205 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: get_summary
+2024-09-11 21:19:52,205 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: sampled_history
+2024-09-11 21:19:52,206 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-11 21:19:52,349 DEBUG   SenderThread:3317886 [sender.py:send_request():418] send_request: poll_exit
+2024-09-11 21:19:52,349 INFO    MainThread:3317886 [wandb_run.py:_footer_history_summary_info():4088] rendering history
+2024-09-11 21:19:52,350 INFO    MainThread:3317886 [wandb_run.py:_footer_history_summary_info():4120] rendering summary
+2024-09-11 21:19:52,350 INFO    MainThread:3317886 [wandb_run.py:_footer_sync_info():4047] logging synced files
+2024-09-11 21:19:52,350 DEBUG   HandlerThread:3317886 [handler.py:handle_request():158] handle_request: shutdown
+2024-09-11 21:19:52,350 INFO    HandlerThread:3317886 [handler.py:finish():884] shutting down handler
+2024-09-11 21:19:53,204 INFO    WriterThread:3317886 [datastore.py:close():296] close: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240911_211629-fg1pldn9/run-fg1pldn9.wandb
+2024-09-11 21:19:53,350 INFO    SenderThread:3317886 [sender.py:finish():1631] shutting down sender
+2024-09-11 21:19:53,350 INFO    SenderThread:3317886 [file_pusher.py:finish():169] shutting down file pusher
+2024-09-11 21:19:53,350 INFO    SenderThread:3317886 [file_pusher.py:join():175] waiting for file pusher

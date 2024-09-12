@@ -1,0 +1,25 @@
+Number of parameters: 10,646,784
+Attention order: 3
+step 0: train loss nan, val loss nan
+iter 0: loss nan, time 4523.55ms, mfu -100.00%
+iter 1: loss nan, time 25.35ms, mfu -100.00%
+iter 2: loss nan, time 261.28ms, mfu -100.00%
+iter 3: loss nan, time 261.93ms, mfu -100.00%
+iter 4: loss nan, time 263.35ms, mfu -100.00%
+step 5: train loss nan, val loss nan
+iter 5: loss nan, time 3537.23ms, mfu 0.00%
+iter 6: loss nan, time 261.45ms, mfu 0.00%
+iter 7: loss nan, time 262.60ms, mfu 0.01%
+iter 8: loss nan, time 264.28ms, mfu 0.01%
+iter 9: loss nan, time 263.68ms, mfu 0.01%
+Traceback (most recent call last):
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/train.py", line 273, in <module>
+    losses = estimate_loss()
+             ^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/train.py", line 227, in estimate_loss
+    losses[k] = loss.item()
+                ^^^^^^^^^^^
+KeyboardInterrupt

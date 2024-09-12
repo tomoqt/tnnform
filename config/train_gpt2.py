@@ -3,7 +3,7 @@
 # $ torchrun --standalone --nproc_per_node=8 train.py config/train_gpt2.py
 
 wandb_log = True
-wandb_project = 'owt'
+wandb_project = 'higher-order-owt'
 wandb_run_name='gpt2-124M'
 
 # these make the total batch size be ~0.5M
@@ -11,6 +11,8 @@ wandb_run_name='gpt2-124M'
 batch_size = 12
 block_size = 1024
 gradient_accumulation_steps = 5 * 8
+attention_order = 3  # Set the attention order to 3 for higher-order attention
+wandb_run_name = f'higher-order-gpt order {attention_order}'
 
 # this makes total number of tokens be 300B
 max_iters = 600000

@@ -1,0 +1,140 @@
+Number of parameters: 10,646,784
+Attention order: 3
+step 0: train loss 4.2771, val loss 4.2721
+iter 0: loss 4.2235, time 7475.52ms, mfu -100.00%
+iter 1: loss 4.2332, time 190.64ms, mfu -100.00%
+iter 2: loss 4.2037, time 372.79ms, mfu -100.00%
+iter 3: loss 4.1147, time 371.10ms, mfu -100.00%
+iter 4: loss 3.9308, time 371.14ms, mfu -100.00%
+step 5: train loss 3.6892, val loss 3.7095
+saving checkpoint to out-shakespeare-char
+iter 5: loss 3.7939, time 6904.89ms, mfu 0.00%
+iter 6: loss 3.7198, time 371.42ms, mfu 0.00%
+iter 7: loss 3.5644, time 372.65ms, mfu 0.00%
+iter 8: loss 3.5430, time 370.90ms, mfu 0.00%
+iter 9: loss 3.5231, time 371.55ms, mfu 0.01%
+step 10: train loss 3.2606, val loss 3.2686
+saving checkpoint to out-shakespeare-char
+iter 10: loss 3.3442, time 6886.76ms, mfu 0.01%
+iter 11: loss 3.2357, time 371.64ms, mfu 0.01%
+iter 12: loss 3.3481, time 372.44ms, mfu 0.01%
+iter 13: loss 3.1076, time 371.37ms, mfu 0.01%
+iter 14: loss 3.0321, time 371.62ms, mfu 0.01%
+step 15: train loss 3.0994, val loss 3.0684
+saving checkpoint to out-shakespeare-char
+iter 15: loss 3.4148, time 6883.68ms, mfu 0.01%
+iter 16: loss 2.9651, time 368.99ms, mfu 0.01%
+iter 17: loss 3.0010, time 369.20ms, mfu 0.01%
+iter 18: loss 3.0236, time 369.52ms, mfu 0.01%
+iter 19: loss 3.0077, time 369.77ms, mfu 0.01%
+step 20: train loss 2.9256, val loss 2.9431
+saving checkpoint to out-shakespeare-char
+iter 20: loss 2.8886, time 6813.25ms, mfu 0.01%
+iter 21: loss 2.9766, time 369.99ms, mfu 0.01%
+iter 22: loss 2.8303, time 369.45ms, mfu 0.01%
+iter 23: loss 3.2540, time 369.43ms, mfu 0.01%
+iter 24: loss 2.9580, time 369.66ms, mfu 0.01%
+step 25: train loss 2.8958, val loss 2.9599
+iter 25: loss 2.9345, time 6350.14ms, mfu 0.01%
+iter 26: loss 2.9089, time 368.80ms, mfu 0.01%
+iter 27: loss 2.9123, time 369.27ms, mfu 0.01%
+iter 28: loss 3.1075, time 369.69ms, mfu 0.01%
+iter 29: loss 2.8757, time 369.28ms, mfu 0.01%
+step 30: train loss 2.8394, val loss 2.8605
+saving checkpoint to out-shakespeare-char
+iter 30: loss 2.8891, time 6806.35ms, mfu 0.01%
+iter 31: loss 2.8487, time 369.16ms, mfu 0.01%
+iter 32: loss 2.8185, time 369.73ms, mfu 0.01%
+iter 33: loss 2.8287, time 370.70ms, mfu 0.01%
+iter 34: loss 2.9299, time 370.93ms, mfu 0.01%
+step 35: train loss 2.7588, val loss 2.7761
+saving checkpoint to out-shakespeare-char
+iter 35: loss 2.6874, time 6809.24ms, mfu 0.01%
+iter 36: loss 2.9008, time 368.83ms, mfu 0.01%
+iter 37: loss 2.8133, time 370.98ms, mfu 0.01%
+iter 38: loss 2.7791, time 369.79ms, mfu 0.01%
+iter 39: loss 2.7601, time 370.90ms, mfu 0.01%
+step 40: train loss 2.7622, val loss 2.7634
+saving checkpoint to out-shakespeare-char
+iter 40: loss 2.7723, time 6806.63ms, mfu 0.01%
+iter 41: loss 2.7022, time 370.56ms, mfu 0.01%
+iter 42: loss 2.7719, time 370.54ms, mfu 0.01%
+iter 43: loss 2.8046, time 371.73ms, mfu 0.01%
+iter 44: loss 2.7144, time 370.11ms, mfu 0.01%
+step 45: train loss 2.7681, val loss 2.7507
+saving checkpoint to out-shakespeare-char
+iter 45: loss 2.8874, time 6813.66ms, mfu 0.01%
+iter 46: loss 2.6865, time 371.16ms, mfu 0.01%
+iter 47: loss 2.7327, time 370.20ms, mfu 0.01%
+iter 48: loss 2.8934, time 371.53ms, mfu 0.01%
+iter 49: loss 2.6926, time 371.45ms, mfu 0.01%
+step 50: train loss 2.7516, val loss 2.7133
+saving checkpoint to out-shakespeare-char
+iter 50: loss 2.7366, time 6818.44ms, mfu 0.01%
+iter 51: loss 2.8202, time 372.07ms, mfu 0.01%
+iter 52: loss 2.7639, time 372.22ms, mfu 0.01%
+iter 53: loss 2.6775, time 371.09ms, mfu 0.01%
+iter 54: loss 2.7166, time 370.91ms, mfu 0.01%
+step 55: train loss 2.6680, val loss 2.7117
+saving checkpoint to out-shakespeare-char
+iter 55: loss 2.7665, time 6818.53ms, mfu 0.01%
+iter 56: loss 2.6434, time 371.96ms, mfu 0.01%
+iter 57: loss 2.8031, time 371.75ms, mfu 0.01%
+iter 58: loss 2.7356, time 371.98ms, mfu 0.01%
+iter 59: loss 2.7313, time 372.62ms, mfu 0.01%
+step 60: train loss 2.7039, val loss 2.7633
+iter 60: loss 2.6413, time 6356.30ms, mfu 0.01%
+iter 61: loss 2.7011, time 372.00ms, mfu 0.01%
+iter 62: loss 2.6872, time 372.97ms, mfu 0.01%
+iter 63: loss 2.7495, time 373.18ms, mfu 0.01%
+iter 64: loss 3.2613, time 372.71ms, mfu 0.01%
+step 65: train loss 2.7533, val loss 2.8450
+iter 65: loss 2.7230, time 6357.30ms, mfu 0.01%
+iter 66: loss 2.7397, time 373.25ms, mfu 0.01%
+iter 67: loss 2.8826, time 372.23ms, mfu 0.01%
+iter 68: loss 2.5909, time 373.93ms, mfu 0.01%
+iter 69: loss 2.9200, time 371.72ms, mfu 0.01%
+step 70: train loss 2.7475, val loss 2.7043
+saving checkpoint to out-shakespeare-char
+iter 70: loss 2.7363, time 6785.36ms, mfu 0.01%
+iter 71: loss 2.7302, time 373.58ms, mfu 0.01%
+iter 72: loss 2.7945, time 374.11ms, mfu 0.01%
+iter 73: loss 2.8707, time 374.18ms, mfu 0.01%
+iter 74: loss 2.7932, time 375.13ms, mfu 0.01%
+step 75: train loss 2.7079, val loss 2.7032
+saving checkpoint to out-shakespeare-char
+iter 75: loss 2.7271, time 6853.26ms, mfu 0.01%
+iter 76: loss 2.6828, time 375.76ms, mfu 0.01%
+iter 77: loss 2.5950, time 376.07ms, mfu 0.01%
+iter 78: loss 2.7602, time 374.31ms, mfu 0.01%
+iter 79: loss 2.7850, time 376.27ms, mfu 0.01%
+step 80: train loss 2.7070, val loss 2.7443
+iter 80: loss 2.6832, time 6416.58ms, mfu 0.01%
+iter 81: loss 2.6506, time 376.05ms, mfu 0.01%
+iter 82: loss 2.9262, time 378.16ms, mfu 0.01%
+iter 83: loss 2.8232, time 380.54ms, mfu 0.01%
+iter 84: loss 2.9628, time 380.22ms, mfu 0.01%
+step 85: train loss 2.6840, val loss 2.7025
+saving checkpoint to out-shakespeare-char
+iter 85: loss 2.8895, time 7128.18ms, mfu 0.01%
+iter 86: loss 2.5016, time 378.60ms, mfu 0.01%
+iter 87: loss 2.5286, time 384.42ms, mfu 0.01%
+iter 88: loss 2.7362, time 387.85ms, mfu 0.01%
+iter 89: loss 2.6858, time 386.92ms, mfu 0.01%
+step 90: train loss 2.6663, val loss 2.6986
+saving checkpoint to out-shakespeare-char
+iter 90: loss 2.8366, time 7738.56ms, mfu 0.01%
+iter 91: loss 2.7300, time 427.06ms, mfu 0.01%
+iter 92: loss 2.5899, time 424.05ms, mfu 0.01%
+iter 93: loss 2.7423, time 427.08ms, mfu 0.01%
+iter 94: loss 2.6913, time 426.32ms, mfu 0.01%
+step 95: train loss 2.6778, val loss 2.6818
+saving checkpoint to out-shakespeare-char
+iter 95: loss 2.5663, time 8677.15ms, mfu 0.01%
+iter 96: loss 2.8501, time 465.44ms, mfu 0.01%
+iter 97: loss 2.6824, time 477.38ms, mfu 0.01%
+Traceback (most recent call last):
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/train.py", line 327, in <module>
+    lossf = loss.item() * gradient_accumulation_steps
+            ^^^^^^^^^^^
+KeyboardInterrupt

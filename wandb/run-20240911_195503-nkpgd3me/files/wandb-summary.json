@@ -1,0 +1,1 @@
+{"n_params": 10646784, "attention_order": 3, "_timestamp": 1726077393.9526834, "_runtime": 90.58993339538574, "_step": 38, "iter": 90, "train/loss": NaN, "val/loss": NaN, "lr": 0.0009, "mfu": 0.00016292663596654568, "_wandb": {"runtime": 91}}

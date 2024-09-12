@@ -1,0 +1,127 @@
+Number of parameters: 10,646,784
+Attention order: 3
+step 0: train loss nan, val loss nan
+iter 0: loss nan, time 4507.43ms, mfu -100.00%
+iter 1: loss nan, time 25.83ms, mfu -100.00%
+iter 2: loss nan, time 260.67ms, mfu -100.00%
+iter 3: loss nan, time 262.12ms, mfu -100.00%
+iter 4: loss nan, time 263.15ms, mfu -100.00%
+step 5: train loss nan, val loss nan
+iter 5: loss nan, time 3536.72ms, mfu 0.00%
+iter 6: loss nan, time 262.33ms, mfu 0.00%
+iter 7: loss nan, time 263.24ms, mfu 0.01%
+iter 8: loss nan, time 263.71ms, mfu 0.01%
+iter 9: loss nan, time 264.62ms, mfu 0.01%
+step 10: train loss nan, val loss nan
+iter 10: loss nan, time 3534.55ms, mfu 0.01%
+iter 11: loss nan, time 263.75ms, mfu 0.01%
+iter 12: loss nan, time 262.95ms, mfu 0.01%
+iter 13: loss nan, time 263.99ms, mfu 0.01%
+iter 14: loss nan, time 263.99ms, mfu 0.01%
+step 15: train loss nan, val loss nan
+iter 15: loss nan, time 3539.34ms, mfu 0.01%
+iter 16: loss nan, time 263.54ms, mfu 0.01%
+iter 17: loss nan, time 264.02ms, mfu 0.01%
+iter 18: loss nan, time 263.71ms, mfu 0.01%
+iter 19: loss nan, time 263.84ms, mfu 0.02%
+step 20: train loss nan, val loss nan
+iter 20: loss nan, time 3542.15ms, mfu 0.01%
+iter 21: loss nan, time 263.33ms, mfu 0.01%
+iter 22: loss nan, time 263.58ms, mfu 0.02%
+iter 23: loss nan, time 263.52ms, mfu 0.02%
+iter 24: loss nan, time 263.62ms, mfu 0.02%
+step 25: train loss nan, val loss nan
+iter 25: loss nan, time 3545.92ms, mfu 0.02%
+iter 26: loss nan, time 262.87ms, mfu 0.02%
+iter 27: loss nan, time 264.18ms, mfu 0.02%
+iter 28: loss nan, time 264.73ms, mfu 0.02%
+iter 29: loss nan, time 263.44ms, mfu 0.02%
+step 30: train loss nan, val loss nan
+iter 30: loss nan, time 3549.76ms, mfu 0.02%
+iter 31: loss nan, time 264.48ms, mfu 0.02%
+iter 32: loss nan, time 262.80ms, mfu 0.02%
+iter 33: loss nan, time 264.77ms, mfu 0.02%
+iter 34: loss nan, time 263.57ms, mfu 0.02%
+step 35: train loss nan, val loss nan
+iter 35: loss nan, time 3551.54ms, mfu 0.02%
+iter 36: loss nan, time 265.23ms, mfu 0.02%
+iter 37: loss nan, time 263.64ms, mfu 0.02%
+iter 38: loss nan, time 264.91ms, mfu 0.02%
+iter 39: loss nan, time 265.61ms, mfu 0.02%
+step 40: train loss nan, val loss nan
+iter 40: loss nan, time 3556.76ms, mfu 0.02%
+iter 41: loss nan, time 264.94ms, mfu 0.02%
+iter 42: loss nan, time 264.26ms, mfu 0.02%
+iter 43: loss nan, time 266.35ms, mfu 0.02%
+iter 44: loss nan, time 265.04ms, mfu 0.02%
+step 45: train loss nan, val loss nan
+iter 45: loss nan, time 3562.60ms, mfu 0.02%
+iter 46: loss nan, time 265.56ms, mfu 0.02%
+iter 47: loss nan, time 264.78ms, mfu 0.02%
+iter 48: loss nan, time 265.23ms, mfu 0.02%
+iter 49: loss nan, time 265.72ms, mfu 0.02%
+step 50: train loss nan, val loss nan
+iter 50: loss nan, time 3571.53ms, mfu 0.02%
+iter 51: loss nan, time 266.60ms, mfu 0.02%
+iter 52: loss nan, time 265.23ms, mfu 0.02%
+iter 53: loss nan, time 266.13ms, mfu 0.02%
+iter 54: loss nan, time 265.85ms, mfu 0.02%
+step 55: train loss nan, val loss nan
+iter 55: loss nan, time 3578.20ms, mfu 0.02%
+iter 56: loss nan, time 265.41ms, mfu 0.02%
+iter 57: loss nan, time 266.43ms, mfu 0.02%
+iter 58: loss nan, time 267.35ms, mfu 0.02%
+iter 59: loss nan, time 269.13ms, mfu 0.02%
+step 60: train loss nan, val loss nan
+iter 60: loss nan, time 3586.14ms, mfu 0.02%
+iter 61: loss nan, time 267.40ms, mfu 0.02%
+iter 62: loss nan, time 267.93ms, mfu 0.02%
+iter 63: loss nan, time 265.82ms, mfu 0.02%
+iter 64: loss nan, time 266.57ms, mfu 0.02%
+step 65: train loss nan, val loss nan
+iter 65: loss nan, time 3597.37ms, mfu 0.02%
+iter 66: loss nan, time 268.05ms, mfu 0.02%
+iter 67: loss nan, time 266.40ms, mfu 0.02%
+iter 68: loss nan, time 268.15ms, mfu 0.02%
+iter 69: loss nan, time 268.95ms, mfu 0.02%
+step 70: train loss nan, val loss nan
+iter 70: loss nan, time 3602.50ms, mfu 0.02%
+iter 71: loss nan, time 269.77ms, mfu 0.02%
+iter 72: loss nan, time 268.27ms, mfu 0.02%
+iter 73: loss nan, time 269.22ms, mfu 0.02%
+iter 74: loss nan, time 269.34ms, mfu 0.02%
+step 75: train loss nan, val loss nan
+iter 75: loss nan, time 3613.31ms, mfu 0.02%
+iter 76: loss nan, time 270.28ms, mfu 0.02%
+iter 77: loss nan, time 269.24ms, mfu 0.02%
+iter 78: loss nan, time 270.91ms, mfu 0.02%
+iter 79: loss nan, time 268.29ms, mfu 0.02%
+step 80: train loss nan, val loss nan
+iter 80: loss nan, time 3622.23ms, mfu 0.02%
+iter 81: loss nan, time 270.43ms, mfu 0.02%
+iter 82: loss nan, time 269.94ms, mfu 0.02%
+iter 83: loss nan, time 269.74ms, mfu 0.02%
+iter 84: loss nan, time 271.73ms, mfu 0.02%
+step 85: train loss nan, val loss nan
+iter 85: loss nan, time 3640.61ms, mfu 0.02%
+iter 86: loss nan, time 285.64ms, mfu 0.02%
+iter 87: loss nan, time 285.45ms, mfu 0.02%
+iter 88: loss nan, time 286.62ms, mfu 0.02%
+iter 89: loss nan, time 284.79ms, mfu 0.02%
+step 90: train loss nan, val loss nan
+iter 90: loss nan, time 5428.76ms, mfu 0.02%
+iter 91: loss nan, time 291.29ms, mfu 0.02%
+iter 92: loss nan, time 289.50ms, mfu 0.02%
+iter 93: loss nan, time 290.57ms, mfu 0.02%
+iter 94: loss nan, time 291.34ms, mfu 0.02%
+Traceback (most recent call last):
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/train.py", line 274, in <module>
+    losses = estimate_loss()
+             ^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/train.py", line 228, in estimate_loss
+    losses[k] = loss.item()
+                ^^^^^^^^^^^
+KeyboardInterrupt

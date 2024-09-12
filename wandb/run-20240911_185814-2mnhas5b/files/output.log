@@ -1,0 +1,49 @@
+Number of parameters: 10,646,784
+Attention order: 3
+step 0: train loss 4.2874, val loss 4.2823
+iter 0: loss 4.2662, time 25445.46ms, mfu -100.00%
+iter 10: loss 3.2415, time 173.45ms, mfu 2.15%
+iter 20: loss 2.7755, time 181.58ms, mfu 2.14%
+iter 30: loss 2.6340, time 184.21ms, mfu 2.13%
+iter 40: loss 2.5809, time 182.20ms, mfu 2.12%
+iter 50: loss 2.5309, time 182.58ms, mfu 2.11%
+iter 60: loss 2.5127, time 254.28ms, mfu 2.05%
+iter 70: loss 2.5006, time 252.94ms, mfu 1.99%
+iter 80: loss 2.4976, time 623.31ms, mfu 1.85%
+iter 90: loss 2.4679, time 177.37ms, mfu 1.88%
+iter 100: loss 2.4556, time 263.89ms, mfu 1.83%
+iter 110: loss 2.4573, time 623.66ms, mfu 1.71%
+iter 120: loss 2.4284, time 622.81ms, mfu 1.59%
+iter 130: loss 2.4166, time 220.31ms, mfu 1.60%
+iter 140: loss 2.4017, time 624.28ms, mfu 1.50%
+iter 150: loss 2.4172, time 230.27ms, mfu 1.52%
+iter 160: loss 2.3828, time 623.56ms, mfu 1.42%
+iter 170: loss 2.3693, time 340.35ms, mfu 1.39%
+iter 180: loss 2.3176, time 623.51ms, mfu 1.31%
+iter 190: loss 2.2435, time 622.87ms, mfu 1.24%
+iter 200: loss 2.2129, time 624.39ms, mfu 1.18%
+iter 210: loss 2.1427, time 252.34ms, mfu 1.21%
+iter 220: loss 2.1369, time 624.50ms, mfu 1.14%
+iter 230: loss 2.0730, time 623.20ms, mfu 1.09%
+iter 240: loss 2.0784, time 238.19ms, mfu 1.14%
+step 250: train loss 1.9614, val loss 2.0541
+saving checkpoint to out-shakespeare-char
+iter 250: loss 2.0341, time 74710.07ms, mfu 1.02%
+iter 260: loss 1.9778, time 480.13ms, mfu 1.00%
+iter 270: loss 1.9768, time 623.03ms, mfu 0.96%
+iter 280: loss 1.9740, time 434.02ms, mfu 0.95%
+iter 290: loss 1.9159, time 543.25ms, mfu 0.92%
+iter 300: loss 1.9036, time 623.08ms, mfu 0.89%
+iter 310: loss 1.8587, time 629.92ms, mfu 0.86%
+iter 320: loss 1.8419, time 446.38ms, mfu 0.86%
+iter 330: loss 1.8165, time 367.58ms, mfu 0.87%
+Traceback (most recent call last):
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/train.py", line 312, in <module>
+    X, Y = get_batch('train')
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/train.py", line 128, in get_batch
+    y = torch.stack([torch.from_numpy((data[i+1:i+1+block_size]).astype(np.int64)) for i in ix])
+                                       ~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/numpy/_core/memmap.py", line 348, in __getitem__
+    def __getitem__(self, index):
+KeyboardInterrupt

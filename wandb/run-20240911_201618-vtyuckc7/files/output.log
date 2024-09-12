@@ -1,0 +1,2781 @@
+Number of parameters: 10,646,784
+Attention order: 3
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected in projection 0er norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0er norm
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+NaN detected in Block final output
+NaN detected in Block input
+NaN detected after first layer norm
+NaN detected in TrueHigherOrderAttention input
+NaN detected in projection 0
+NaN detected in projection 1
+NaN detected in projection 2
+NaN detected in attention scores
+NaN detected after softmax
+NaN detected in final attention output
+NaN detected in attention output
+NaN detected in TrueHigherOrderAttention final output
+NaN detected after attention
+NaN detected after first residual connection
+NaN detected after second layer norm
+NaN detected after MLP
+Traceback (most recent call last):
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/train.py", line 273, in <module>
+    losses = estimate_loss()
+             ^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/train.py", line 226, in estimate_loss
+    logits, loss = model(X, Y)
+                   ^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/model.py", line 267, in forward
+    x = block(x)
+        ^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/nanoGPT/model.py", line 184, in forward
+    print("NaN detected after MLP")
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/wandb/sdk/lib/redirect.py", line 648, in write
+    cb(data)
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/wandb/sdk/wandb_run.py", line 2380, in <lambda>
+    lambda data: self._console_raw_callback("stdout", data),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/wandb/sdk/wandb_run.py", line 403, in wrapper_fn
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/wandb/sdk/wandb_run.py", line 1549, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/wandb/sdk/interface/interface.py", line 716, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/wandb/sdk/interface/interface_shared.py", line 79, in _publish_output_raw
+    self._publish(rec)
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+    self._send_message(msg)
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/consorzio/Technoscience/Research/TNNformers/venv/lib/python3.12/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+           ^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
