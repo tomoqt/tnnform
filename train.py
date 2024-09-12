@@ -247,7 +247,7 @@ def get_lr(it):
 if wandb_log and master_process:
     wandb.init(project=wandb_project, name=wandb_run_name, config=config)
     n_params = 30000000#model.get_num_params()
-    attention_order = model.config.attention_order
+    attention_order = 3#model.config.attention_order
     print(f"Number of parameters: {n_params:,}")
     print(f"Attention order: {attention_order}")
     wandb.log({

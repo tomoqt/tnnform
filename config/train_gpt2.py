@@ -8,8 +8,10 @@ wandb_run_name='gpt2-124M'
 
 # these make the total batch size be ~0.5M
 # 12 batch size * 1024 block size * 5 gradaccum * 8 GPUs = 491,520
-batch_size = 12
-block_size = 1024
+batch_size = 1
+block_size = 512
+n_layer = 6
+n_head = 6
 gradient_accumulation_steps = 5 * 8
 attention_order = 3  # Set the attention order to 3 for higher-order attention
 wandb_run_name = f'higher-order-gpt order {attention_order}'
