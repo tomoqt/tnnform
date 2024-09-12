@@ -23,3 +23,13 @@ config: {'out_dir': 'out-shakespeare', 'eval_interval': 250, 'log_interval': 1, 
 2024-09-12 10:30:26,978 INFO    MainThread:3418594 [wandb_run.py:_redirect():2376] Wrapping output streams.
 2024-09-12 10:30:26,978 INFO    MainThread:3418594 [wandb_run.py:_redirect():2401] Redirects installed.
 2024-09-12 10:30:26,982 INFO    MainThread:3418594 [wandb_init.py:init():895] run started, returning control to user process
+2024-09-12 13:32:00,946 INFO    MainThread:3418594 [wandb_run.py:_finish():2162] finishing run aisparks/shakespeare-char-higher-order/rj6dis43
+2024-09-12 13:32:00,946 INFO    MainThread:3418594 [wandb_run.py:_atexit_cleanup():2426] got exitcode: 0
+2024-09-12 13:32:00,946 INFO    MainThread:3418594 [wandb_run.py:_restore():2408] restore
+2024-09-12 13:32:00,946 INFO    MainThread:3418594 [wandb_run.py:_restore():2414] restore done
+2024-09-12 13:32:00,946 INFO    MainThread:3418594 [wandb_run.py:_on_finish():2679] communicating current version
+2024-09-12 13:32:00,985 INFO    MainThread:3418594 [wandb_run.py:_on_finish():2688] got version response upgrade_message: "wandb version 0.18.0 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-09-12 13:32:05,796 INFO    MainThread:3418594 [wandb_run.py:_footer_history_summary_info():4088] rendering history
+2024-09-12 13:32:05,797 INFO    MainThread:3418594 [wandb_run.py:_footer_history_summary_info():4120] rendering summary
+2024-09-12 13:32:05,802 INFO    MainThread:3418594 [wandb_run.py:_footer_sync_info():4047] logging synced files

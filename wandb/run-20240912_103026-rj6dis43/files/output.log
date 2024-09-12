@@ -3022,3 +3022,7 @@ iter 2995: loss 0.0247, time 3263.15ms, mfu 0.06%
 iter 2996: loss 0.0190, time 4026.81ms, mfu 0.06%
 iter 2997: loss 0.0196, time 4766.54ms, mfu 0.06%
 iter 2998: loss 0.0123, time 2069.30ms, mfu 0.06%
+iter 2999: loss 0.0156, time 1725.16ms, mfu 0.07%
+step 3000: train loss 0.0153, val loss 0.8562
+saving checkpoint to out-shakespeare
+iter 3000: loss 0.0252, time 169901.96ms, mfu 0.06%

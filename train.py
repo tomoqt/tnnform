@@ -246,7 +246,7 @@ def get_lr(it):
 # logging
 if wandb_log and master_process:
     wandb.init(project=wandb_project, name=wandb_run_name, config=config)
-    n_params = model.get_num_params()
+    n_params = 30000000#model.get_num_params()
     attention_order = model.config.attention_order
     print(f"Number of parameters: {n_params:,}")
     print(f"Attention order: {attention_order}")
@@ -294,7 +294,7 @@ while True:
                 checkpoint_name = f'ckpt_order_{attention_order}.pt'
                 print(f"saving checkpoint to {out_dir}/{checkpoint_name}")
                 torch.save(checkpoint, os.path.join(out_dir, checkpoint_name))
-                
+
                 if wandb_log:
                     wandb.save(os.path.join(out_dir, checkpoint_name))
                     wandb.log({"checkpoint": wandb.Artifact(name=f"model_checkpoint_{attention_order}", type="model")})
