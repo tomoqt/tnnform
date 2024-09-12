@@ -73,7 +73,7 @@ backend = 'nccl' # 'nccl', 'gloo', etc.
 # system
 device = 'cuda' # examples: 'cpu', 'cuda', 'cuda:0', 'cuda:1' etc., or try 'mps' on macbooks
 dtype = 'float16'#bfloat16' if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else 'float16' # 'float32', 'bfloat16', or 'float16', the latter will auto implement a GradScaler
-compile = False # use PyTorch 2.0 to compile the model to be faster
+compile = True # use PyTorch 2.0 to compile the model to be faster
 # -----------------------------------------------------------------------------
 config_keys = [k for k,v in globals().items() if not k.startswith('_') and isinstance(v, (int, float, bool, str))]
 exec(open('configurator.py').read()) # overrides from command line or config file
@@ -297,7 +297,9 @@ while True:
 
                 if wandb_log:
                     wandb.save(os.path.join(out_dir, checkpoint_name))
-                    wandb.log({"checkpoint": wandb.Artifact(name=f"model_checkpoint_{attention_order}", type="model")})
+                    artifact = wandb.Artifact(name=f"model_checkpoint_{attention_order}", type="model")
+                    artifact.add_file(os.path.join(out_dir, checkpoint_name))
+                    wandb.log_artifact(artifact)
     if iter_num == 0 and eval_only:
         break
 
