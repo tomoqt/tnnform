@@ -22718,3 +22718,26 @@
 2024-09-12 13:28:07,128 DEBUG   HandlerThread:3418704 [handler.py:handle_request():158] handle_request: internal_messages
 2024-09-12 13:28:07,157 INFO    Thread-12 :3418704 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240912_103026-rj6dis43/files/wandb-summary.json
 2024-09-12 13:28:07,268 DEBUG   HandlerThread:3418704 [handler.py:handle_request():158] handle_request: status_report
+2024-09-12 13:28:08,158 INFO    Thread-12 :3418704 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240912_103026-rj6dis43/files/output.log
+2024-09-12 13:28:11,027 DEBUG   HandlerThread:3418704 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-12 13:28:11,028 DEBUG   SenderThread:3418704 [sender.py:send():391] send: history
+2024-09-12 13:28:11,028 DEBUG   SenderThread:3418704 [sender.py:send_request():418] send_request: summary_record
+2024-09-12 13:28:11,029 INFO    SenderThread:3418704 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-12 13:28:11,159 INFO    Thread-12 :3418704 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240912_103026-rj6dis43/files/wandb-summary.json
+2024-09-12 13:28:12,079 DEBUG   HandlerThread:3418704 [handler.py:handle_request():158] handle_request: stop_status
+2024-09-12 13:28:12,079 DEBUG   SenderThread:3418704 [sender.py:send_request():418] send_request: stop_status
+2024-09-12 13:28:12,159 INFO    Thread-12 :3418704 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240912_103026-rj6dis43/files/output.log
+2024-09-12 13:28:12,315 DEBUG   HandlerThread:3418704 [handler.py:handle_request():158] handle_request: status_report
+2024-09-12 13:28:12,481 DEBUG   HandlerThread:3418704 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-12 13:28:12,482 DEBUG   SenderThread:3418704 [sender.py:send():391] send: history
+2024-09-12 13:28:12,482 DEBUG   SenderThread:3418704 [sender.py:send_request():418] send_request: summary_record
+2024-09-12 13:28:12,482 INFO    SenderThread:3418704 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-12 13:28:13,159 INFO    Thread-12 :3418704 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240912_103026-rj6dis43/files/wandb-summary.json
+2024-09-12 13:28:14,159 INFO    Thread-12 :3418704 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240912_103026-rj6dis43/files/output.log
+2024-09-12 13:28:16,477 DEBUG   HandlerThread:3418704 [handler.py:handle_request():158] handle_request: partial_history
+2024-09-12 13:28:16,478 DEBUG   SenderThread:3418704 [sender.py:send():391] send: history
+2024-09-12 13:28:16,478 DEBUG   SenderThread:3418704 [sender.py:send_request():418] send_request: summary_record
+2024-09-12 13:28:16,478 INFO    SenderThread:3418704 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2024-09-12 13:28:17,128 DEBUG   HandlerThread:3418704 [handler.py:handle_request():158] handle_request: internal_messages
+2024-09-12 13:28:17,160 INFO    Thread-12 :3418704 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240912_103026-rj6dis43/files/wandb-summary.json
+2024-09-12 13:28:18,160 INFO    Thread-12 :3418704 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/consorzio/Technoscience/Research/TNNformers/nanoGPT/wandb/run-20240912_103026-rj6dis43/files/output.log
