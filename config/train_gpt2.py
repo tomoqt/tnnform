@@ -12,7 +12,7 @@ batch_size = 1
 block_size = 512
 n_layer = 6
 n_head = 6
-gradient_accumulation_steps = 5 * 8
+gradient_accumulation_steps = 1
 attention_order = 3  # Set the attention order to 3 for higher-order attention
 wandb_run_name = f'higher-order-gpt order {attention_order}'
 
