@@ -290,7 +290,7 @@ while True:
                     'best_val_loss': best_val_loss,
                     'config': config,
                 }
-                attention_order = model.config.attention_order
+                attention_order = 3#model.config.attention_order
                 checkpoint_name = f'ckpt_order_{attention_order}.pt'
                 print(f"saving checkpoint to {out_dir}/{checkpoint_name}")
                 torch.save(checkpoint, os.path.join(out_dir, checkpoint_name))
