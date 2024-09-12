@@ -9,8 +9,8 @@ import torch
 from model import GPTConfig, GPT
 
 # -----------------------------------------------------------------------------
-batch_size = 12
-block_size = 1024
+batch_size = 1
+block_size = 512
 bias = False
 real_data = True
 seed = 1337

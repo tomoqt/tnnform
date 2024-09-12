@@ -100,9 +100,7 @@ class TrueHigherOrderAttention(nn.Module):
         # Perform n-dimensional contraction
         att = torch.einsum(eq, *projs) * self.scale
         
-        if torch.isnan(att).any():
-            print("NaN detected in attention scores")
-            sys.exit(1)
+        
         
         # Apply causal mask (if needed)
         mask = torch.tril(torch.ones(T, T, device=projs[0].device)).view(1, 1, *[T if i < 2 else 1 for i in range(self.attention_order)])
@@ -113,9 +111,6 @@ class TrueHigherOrderAttention(nn.Module):
         att = F.softmax(att, dim=-1)
         att = att.reshape(*projs[0].shape[:2], *([T] * self.attention_order))
         
-        if torch.isnan(att).any():
-            print("NaN detected after softmax")
-            sys.exit(1)
         
         att = self.attn_dropout(att)
         
@@ -123,9 +118,7 @@ class TrueHigherOrderAttention(nn.Module):
         output_eq = f"bh{input_dims},bh{input_dims[-1]}d->bhid"
         y = torch.einsum(output_eq, att, projs[-1])
         
-        if torch.isnan(y).any():
-            print("NaN detected in final attention output")
-            sys.exit(1)
+        
         
         return y
 
@@ -155,39 +148,25 @@ class Block(nn.Module):
         self.mlp = MLP(config)
 
     def forward(self, x):
-        if torch.isnan(x).any():
-            print("NaN detected in Block input")
-            sys.exit(1)
+        
         
         attn_input = self.ln_1(x)
-        if torch.isnan(attn_input).any():
-            print("NaN detected after first layer norm")
-            sys.exit(1)
+        
         
         attn_output = self.attn(attn_input)
-        if torch.isnan(attn_output).any():
-            print("NaN detected after attention")
-            sys.exit(1)
+        
         
         x = x + attn_output
-        if torch.isnan(x).any():
-            print("NaN detected after first residual connection")
-            sys.exit(1)
+        
         
         mlp_input = self.ln_2(x)
-        if torch.isnan(mlp_input).any():
-            print("NaN detected after second layer norm")
-            sys.exit(1)
+            
         
         mlp_output = self.mlp(mlp_input)
-        if torch.isnan(mlp_output).any():
-            print("NaN detected after MLP")
-            sys.exit(1)
+        
         
         x = x + mlp_output
-        if torch.isnan(x).any():
-            print("NaN detected in Block final output")
-            sys.exit(1)
+        
         
         return x
 
@@ -301,14 +280,14 @@ class GPT(nn.Module):
 
         # n_layer, n_head and n_embd are determined from model_type
         config_args = {
-            'gpt2':         dict(n_layer=12, n_head=12, n_embd=768),  # 124M params
+            'gpt2':         dict(n_layer=6, n_head=6, n_embd=768),  # 124M params
             'gpt2-medium':  dict(n_layer=24, n_head=16, n_embd=1024), # 350M params
             'gpt2-large':   dict(n_layer=36, n_head=20, n_embd=1280), # 774M params
             'gpt2-xl':      dict(n_layer=48, n_head=25, n_embd=1600), # 1558M params
         }[model_type]
         print("forcing vocab_size=50257, block_size=1024, bias=True")
         config_args['vocab_size'] = 50257 # always 50257 for GPT model checkpoints
-        config_args['block_size'] = 1024 # always 1024 for GPT model checkpoints
+        config_args['block_size'] = 512 # always 1024 for GPT model checkpoints
         config_args['bias'] = True # always True for GPT model checkpoints
         # we can override the dropout rate, if desired
         if 'dropout' in override_args:
