@@ -14,3 +14,4 @@ venv/
 .log
 .pt
 /venv
+.wandb
