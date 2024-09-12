@@ -1,0 +1,8 @@
+
+source venv/bin/activate
+
+nohup python train.py config/higher_order.py > train_output.log 2>&1 &
+
+
+python data/openwebtext/prepare.py
+torchrun --standalone --nproc_per_node=8 train.py config/train_gpt2.py
