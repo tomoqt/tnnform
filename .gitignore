@@ -12,6 +12,7 @@ env/
 venv/
 /wandb
 *.log
+.log
 .pt
 /venv
 .wandb
