@@ -10,12 +10,24 @@ https://github.com/huggingface/transformers/blob/main/src/transformers/models/gp
 import math
 import inspect
 from dataclasses import dataclass
-import sys  # Add this import at the top of the file
+import sys
 
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
 from torch.nn.utils import weight_norm
+import itertools
+
+def generate_causal_mask(T, attention_order, device):
+    # Generate all possible index combinations
+    indices = torch.arange(T, device=device)
+    grid = torch.meshgrid([indices for _ in range(attention_order)], indexing='ij')
+    grid = torch.stack(grid, dim=-1)  # Shape: (T, T, ..., T, attention_order)
+
+    # Create the causal mask
+    # For each combination, check if the indices are in non-decreasing order
+    mask = (grid.diff(dim=-1) <= 0).all(dim=-1)
+    return mask  # Shape: (T, T, ..., T)
 
 class LayerNorm(nn.Module):
     """ LayerNorm but with an optional bias. PyTorch doesn't support simply bias=False """
@@ -29,7 +41,7 @@ class LayerNorm(nn.Module):
         return F.layer_norm(input, self.weight.shape, self.weight, self.bias, 1e-5)
 
 class TrueHigherOrderAttention(nn.Module):
-    def __init__(self, config):
+    def __init__(self, config, extract_stats=False):
         super().__init__()
         assert config.n_embd % config.n_head == 0
         
@@ -48,11 +60,11 @@ class TrueHigherOrderAttention(nn.Module):
         
         # Output projection
         self.c_proj = nn.Linear(config.n_embd, config.n_embd, bias=config.bias)
-        
+
         # Regularization
         self.attn_dropout = nn.Dropout(config.dropout)
         self.resid_dropout = nn.Dropout(config.dropout)
-        
+
         # Flash attention support
         self.flash = hasattr(torch.nn.functional, 'scaled_dot_product_attention')
         if not self.flash:
@@ -60,22 +72,29 @@ class TrueHigherOrderAttention(nn.Module):
             self.register_buffer("bias", torch.tril(torch.ones(config.block_size, config.block_size))
                                         .view(1, 1, config.block_size, config.block_size))
 
+        self.extract_stats = extract_stats
+
     def forward(self, x):
-        B, T, C = x.size()  # batch size, sequence length, embedding dimensionality (n_embd)
+        B, T, C = x.size()
         
         if torch.isnan(x).any():
             print("NaN detected in TrueHigherOrderAttention input")
             sys.exit(1)
         
-        projs = [proj(x).view(B, T, self.n_head, self.head_dim).permute(0, 2, 1, 3) 
-                 for proj in self.projections]
+        # Compute projections and collect stats only if extract_stats is True
+        projs = []
+        proj_stats = {}
+        for i, proj in enumerate(self.projections):
+            p = proj(x).view(B, T, self.n_head, self.head_dim).permute(0, 2, 1, 3)
+            projs.append(p)
+            if self.extract_stats:
+                proj_stats[f'proj_{i}_mean'] = p.mean().item()
+                proj_stats[f'proj_{i}_std'] = p.std().item()
+                proj_stats[f'proj_{i}_max'] = p.max().item()
+                proj_stats[f'proj_{i}_min'] = p.min().item()
         
-        for i, proj in enumerate(projs):
-            if torch.isnan(proj).any():
-                print(f"NaN detected in projection {i}")
-                sys.exit(1)
-        
-        y = self.true_higher_order_attention(projs)
+        # Compute higher-order attention and collect stats
+        y, att_stats = self.true_higher_order_attention(projs)
         
         if torch.isnan(y).any():
             print("NaN detected in attention output")
@@ -88,39 +107,56 @@ class TrueHigherOrderAttention(nn.Module):
             print("NaN detected in TrueHigherOrderAttention final output")
             sys.exit(1)
         
-        return y
+        # Combine all stats only if extract_stats is True
+        stats = {**proj_stats, **att_stats} if self.extract_stats else {}
+        
+        return y, stats
 
     def true_higher_order_attention(self, projs):
         B, nh, T, hs = projs[0].shape
         
-        # Construct einsum equation for n-dimensional contraction
         input_dims = ''.join([chr(ord('i') + i) for i in range(self.attention_order)])
-        eq = f"{''.join([f'bh{c}d,' for c in input_dims])[:-1]}->bh{input_dims}"
+        # Correct the einsum equation to ensure proper contraction over all attention_order dimensions
+        eq = f"{','.join([f'bh{c}d' for c in input_dims])}->bh{input_dims}"
         
-        # Perform n-dimensional contraction
         att = torch.einsum(eq, *projs) * self.scale
+
+        # Store the attention tensor for logging
+        self.last_attention_tensor = att.detach().cpu()
+
+        # Collect attention tensor statistics only if extract_stats is True
+        stats = {}
+        if self.extract_stats:
+            stats = {
+                'attention_tensor_mean': att.mean().item(),
+                'attention_tensor_std': att.std().item(),
+                'attention_tensor_max': att.max().item(),
+                'attention_tensor_min': att.min().item()
+            }
         
-        
-        
-        # Apply causal mask (if needed)
-        mask = torch.tril(torch.ones(T, T, device=projs[0].device)).view(1, 1, *[T if i < 2 else 1 for i in range(self.attention_order)])
+        # Apply causal mask
+        mask = generate_causal_mask(T, self.attention_order, projs[0].device)
         att = att.masked_fill(mask == 0, float('-inf'))
-        
-        # Apply softmax across the last 'attention_order' dimensions
-        att = att.reshape(*att.shape[:-self.attention_order], -1)
+
+        # Reshape for softmax: flatten all key dimensions
+        att = att.view(B, nh, -1)  # Shape: (B, H, T^attention_order)
         att = F.softmax(att, dim=-1)
-        att = att.reshape(*projs[0].shape[:2], *([T] * self.attention_order))
-        
-        
+        att = att.view(B, nh, *([T] * self.attention_order))  # Shape: (B, H, T, T, T, ...)
+
         att = self.attn_dropout(att)
-        
-        # Final contraction to produce output
-        output_eq = f"bh{input_dims},bh{input_dims[-1]}d->bhid"
-        y = torch.einsum(output_eq, att, projs[-1])
-        
-        
-        
-        return y
+
+        # Final contraction: sum over all key indices to maintain (B, H, T, D)
+        # For attention_order=2: 'bhij, bhjd -> bhid'
+        # For attention_order=3: 'bhijk, bhkd -> bhid'
+        # General form: 'bh<key_indices>, bh<last_key_index>d -> bhid'
+
+        key_indices = input_dims  # e.g., 'ijk' for attention_order=3
+        final_eq = f"bh{key_indices}, bh{key_indices[-1]}d -> bhid"
+
+        # Perform the final contraction
+        y = torch.einsum(final_eq, att, projs[-1])  # Shape: (B, H, T, D)
+
+        return y, stats
 
 class MLP(nn.Module):
 
@@ -140,35 +176,26 @@ class MLP(nn.Module):
 
 class Block(nn.Module):
 
-    def __init__(self, config):
+    def __init__(self, config, extract_stats=False):
         super().__init__()
         self.ln_1 = LayerNorm(config.n_embd, bias=config.bias)
-        self.attn = TrueHigherOrderAttention(config)
+        self.attn = TrueHigherOrderAttention(config, extract_stats=extract_stats)
         self.ln_2 = LayerNorm(config.n_embd, bias=config.bias)
         self.mlp = MLP(config)
+        self.extract_stats = extract_stats
 
     def forward(self, x):
-        
-        
         attn_input = self.ln_1(x)
-        
-        
-        attn_output = self.attn(attn_input)
-        
-        
+        attn_output, attn_stats = self.attn(attn_input)
+        if self.extract_stats:
+            attn_stats['attention_tensor'] = self.attn.last_attention_tensor
         x = x + attn_output
         
-        
         mlp_input = self.ln_2(x)
-            
-        
         mlp_output = self.mlp(mlp_input)
-        
-        
         x = x + mlp_output
         
-        
-        return x
+        return x, attn_stats if self.extract_stats else {}
 
 @dataclass
 class GPTConfig:
@@ -179,11 +206,20 @@ class GPTConfig:
     n_embd: int = 768
     dropout: float = 0.0
     bias: bool = True # True: bias in Linears and LayerNorms, like GPT-2. False: a bit better and faster
-    attention_order: int = 3  # New parameter for attention order
+    attention_orders: list = None  # New parameter for per-head attention orders
+    attention_order: int = 4
+    def __post_init__(self):
+        if self.attention_orders is None:
+            # Default: homogeneously distribute between 2 and max_order
+            max_order = max(2, self.attention_order)  # Ensure at least order 2
+            self.attention_orders = [((i % (max_order - 1)) + 2) for i in range(self.n_head)]
+        else:
+            assert len(self.attention_orders) == self.n_head, "Length of attention_orders must match n_head"
+            assert all(order >= 2 for order in self.attention_orders), "All attention_orders must be >= 2"
 
 class GPT(nn.Module):
 
-    def __init__(self, config):
+    def __init__(self, config, extract_stats=False):
         super().__init__()
         assert config.vocab_size is not None
         assert config.block_size is not None
@@ -193,7 +229,7 @@ class GPT(nn.Module):
             wte = nn.Embedding(config.vocab_size, config.n_embd),
             wpe = nn.Embedding(config.block_size, config.n_embd),
             drop = nn.Dropout(config.dropout),
-            h = nn.ModuleList([Block(config) for _ in range(config.n_layer)]),
+            h = nn.ModuleList([Block(config, extract_stats=extract_stats) for _ in range(config.n_layer)]),
             ln_f = LayerNorm(config.n_embd, bias=config.bias),
         ))
         self.lm_head = nn.Linear(config.n_embd, config.vocab_size, bias=False)
@@ -212,6 +248,8 @@ class GPT(nn.Module):
 
         # report number of parameters
         print("number of parameters: %.2fM" % (self.get_num_params()/1e6,))
+
+        self.extract_stats = extract_stats
 
     def get_num_params(self, non_embedding=True):
         """
@@ -243,20 +281,21 @@ class GPT(nn.Module):
         tok_emb = self.transformer.wte(idx) # token embeddings of shape (b, t, n_embd)
         pos_emb = self.transformer.wpe(pos) # position embeddings of shape (t, n_embd)
         x = self.transformer.drop(tok_emb + pos_emb)
-        for block in self.transformer.h:
-            x = block(x)
+        all_stats = {}
+        for i, block in enumerate(self.transformer.h):
+            x, block_stats = block(x)
+            if self.extract_stats:
+                all_stats[f'block_{i}'] = block_stats
         x = self.transformer.ln_f(x)
 
         if targets is not None:
-            # if we are given some desired targets also calculate the loss
             logits = self.lm_head(x)
             loss = F.cross_entropy(logits.view(-1, logits.size(-1)), targets.view(-1), ignore_index=-1)
         else:
-            # inference-time mini-optimization: only forward the lm_head on the very last position
-            logits = self.lm_head(x[:, [-1], :]) # note: using list [-1] to preserve the time dim
+            logits = self.lm_head(x[:, [-1], :])
             loss = None
 
-        return logits, loss
+        return logits, loss, all_stats if self.extract_stats else (logits, loss)
 
     def crop_block_size(self, block_size):
         # model surgery to decrease the block size if necessary

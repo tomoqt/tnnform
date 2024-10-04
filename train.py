@@ -29,6 +29,10 @@ from torch.distributed import init_process_group, destroy_process_group
 
 from model import GPTConfig, GPT
 import wandb
+import torch.distributed as dist
+import matplotlib.pyplot as plt
+import io
+import argparse
 # -----------------------------------------------------------------------------
 # default config values designed to train a gpt2 (124M) on OpenWebText
 # I/O
@@ -75,9 +79,29 @@ device = 'cuda' # examples: 'cpu', 'cuda', 'cuda:0', 'cuda:1' etc., or try 'mps'
 dtype = 'float16'#bfloat16' if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else 'float16' # 'float32', 'bfloat16', or 'float16', the latter will auto implement a GradScaler
 compile = True # use PyTorch 2.0 to compile the model to be faster
 # -----------------------------------------------------------------------------
+
+# Add this near the top of the file, after imports
+parser = argparse.ArgumentParser()
+parser.add_argument('--verbose_logging', action='store_true', help='Enable verbose logging')
+parser.add_argument('--extract_stats', action='store_true', help='Extract and log detailed statistics (slows down training)')
+args, _ = parser.parse_known_args()
+verbose_logging = args.verbose_logging
+extract_stats = args.extract_stats
+
+# ... (rest of the configurations)
+
+# Modify this line
 config_keys = [k for k,v in globals().items() if not k.startswith('_') and isinstance(v, (int, float, bool, str))]
+config_keys.extend(['verbose_logging', 'extract_stats'])
+
 exec(open('configurator.py').read()) # overrides from command line or config file
+
+# Add verbose_logging and extract_stats to globals
+globals()['verbose_logging'] = verbose_logging
+globals()['extract_stats'] = extract_stats
+
 config = {k: globals()[k] for k in config_keys} # will be useful for logging
+
 # -----------------------------------------------------------------------------
 
 # various inits, derived attributes, I/O setup
@@ -156,7 +180,7 @@ if init_from == 'scratch':
         print("defaulting to vocab_size of GPT-2 to 50304 (50257 rounded up for efficiency)")
     model_args['vocab_size'] = meta_vocab_size if meta_vocab_size is not None else 50304
     gptconf = GPTConfig(**model_args)
-    model = GPT(gptconf)
+    model = GPT(gptconf, extract_stats=extract_stats)
 elif init_from == 'resume':
     print(f"Resuming training from {out_dir}")
     # resume training from a checkpoint.
@@ -169,7 +193,7 @@ elif init_from == 'resume':
         model_args[k] = checkpoint_model_args[k]
     # create the model
     gptconf = GPTConfig(**model_args)
-    model = GPT(gptconf)
+    model = GPT(gptconf, extract_stats=extract_stats)
     state_dict = checkpoint['model']
     # fix the keys of the state dictionary :(
     # honestly no idea how checkpoints sometimes get this prefix, have to debug more
@@ -223,7 +247,7 @@ def estimate_loss():
         for k in range(eval_iters):
             X, Y = get_batch(split)
             with ctx:
-                logits, loss = model(X, Y)
+                logits, loss, _ = model(X, Y)  # Ignore the stats during evaluation
             losses[k] = loss.item()
         out[split] = losses.mean()
     model.train()
@@ -246,23 +270,42 @@ def get_lr(it):
 # logging
 if wandb_log and master_process:
     wandb.init(project=wandb_project, name=wandb_run_name, config=config)
-    n_params = 30000000#model.get_num_params()
-    attention_order = 3#model.config.attention_order
+    wandb.watch(model, log="all", log_freq=log_interval)
+    n_params = model.get_num_params()
+    attention_order = model.config.attention_order
     print(f"Number of parameters: {n_params:,}")
     print(f"Attention order: {attention_order}")
     wandb.log({
         "n_params": n_params,
         "attention_order": attention_order
-    })
+    }, step=iter_num)
+
+# Add this function to create and save heatmap images locally
+def create_and_save_heatmap(data, title, filename):
+    plt.figure(figsize=(10, 8))
+    plt.imshow(data, cmap='viridis', aspect='auto')
+    plt.colorbar()
+    plt.title(title)
+    plt.savefig(filename)
+    plt.close()
+
+# Create a directory to store heatmap images
+os.makedirs('heatmaps', exist_ok=True)
 
 # training loop
-X, Y = get_batch('train') # fetch the very first batch
+X, Y = get_batch('train')
 t0 = time.time()
-local_iter_num = 0 # number of iterations in the lifetime of this process
-raw_model = model.module if ddp else model # unwrap DDP container if needed
+local_iter_num = 0
+raw_model = model.module if ddp else model
 running_mfu = -1.0
-while True:
+stats_window = {}
+window_size = 100
+current_window = 0
 
+# Keep track of the last 3 iterations for each image type
+last_iterations = {'proj_values': [], 'proj_grads': [], 'attention_tensor': []}
+
+while True:
     # determine and set the learning rate for this iteration
     lr = get_lr(iter_num) if decay_lr else learning_rate
     for param_group in optimizer.param_groups:
@@ -291,30 +334,41 @@ while True:
                     'config': config,
                 }
                 attention_order = 3#model.config.attention_order
-                checkpoint_name = f'ckpt_order_{attention_order}.pt'
+                checkpoint_name = f'ckpt_order_{attention_order}_new.pt'
                 print(f"saving checkpoint to {out_dir}/{checkpoint_name}")
-                torch.save(checkpoint, os.path.join(out_dir, checkpoint_name))
+                #torch.save(checkpoint, os.path.join(out_dir, checkpoint_name))
 
-                if wandb_log:
-                    wandb.save(os.path.join(out_dir, checkpoint_name))
-                    artifact = wandb.Artifact(name=f"model_checkpoint_{attention_order}", type="model")
-                    artifact.add_file(os.path.join(out_dir, checkpoint_name))
-                    wandb.log_artifact(artifact)
+               # if wandb_log:
+                   # wandb.save(os.path.join(out_dir, checkpoint_name))
+                    #artifact = wandb.Artifact(name=f"model_checkpoint_{attention_order}", type="model")
+                    #artifact.add_file(os.path.join(out_dir, checkpoint_name))
+                    #wandb.log_artifact(artifact)
     if iter_num == 0 and eval_only:
         break
 
-    # forward backward update, with optional gradient accumulation to simulate larger batch size
-    # and using the GradScaler if data type is float16
+    # forward backward update
     for micro_step in range(gradient_accumulation_steps):
         if ddp:
             model.require_backward_grad_sync = (micro_step == gradient_accumulation_steps - 1)
         with ctx:
-            logits, loss = model(X, Y)
-            loss = loss / gradient_accumulation_steps # scale the loss to account for gradient accumulation
-        # immediately async prefetch next batch while model is doing the forward pass on the GPU
+            if extract_stats:
+                logits, loss, all_stats = model(X, Y)
+            else:
+                logits, loss = model(X, Y)[:2]  # Only get logits and loss
+            loss = loss / gradient_accumulation_steps
         X, Y = get_batch('train')
-        # backward pass, with gradient scaling if training in fp16
         scaler.scale(loss).backward()
+        
+        # Collect gradient statistics
+        if master_process and wandb_log and extract_stats:
+            with torch.no_grad():
+                for name, param in model.named_parameters():
+                    if param.grad is not None:
+                        all_stats[f'{name}_grad_mean'] = param.grad.mean().item()
+                        all_stats[f'{name}_grad_std'] = param.grad.std().item()
+                        all_stats[f'{name}_grad_max'] = param.grad.max().item()
+                        all_stats[f'{name}_grad_min'] = param.grad.min().item()
+
     # clip the gradient
     if grad_clip != 0.0:
         scaler.unscale_(optimizer)
@@ -344,6 +398,71 @@ while True:
                 "lr": lr,
                 "mfu": running_mfu,
             })
+
+    # Verbose logging (only if enabled)
+    if verbose_logging and master_process and extract_stats:
+        # Collect statistics from the model
+        flat_stats = {}
+        for block, block_stats in all_stats.items():
+            if isinstance(block_stats, dict):
+                for stat_name, stat_value in block_stats.items():
+                    flat_stats[f"{block}_{stat_name}"] = stat_value
+            else:
+                flat_stats[block] = block_stats
+        
+        # Create and save heatmap images
+        if iter_num % 1000 == 0:  # Only create heatmaps every 1000 iterations
+            os.makedirs('heatmaps', exist_ok=True)
+            for i, proj in enumerate(model.transformer.h[0].attn.projections):
+                filename = f'heatmaps/proj_{i}_values_iter_{iter_num}.png'
+                create_and_save_heatmap(proj.weight.data.cpu().numpy(), f'Projection {i} Values (Iter {iter_num})', filename)
+                
+                if proj.weight.grad is not None:
+                    filename = f'heatmaps/proj_{i}_grads_iter_{iter_num}.png'
+                    create_and_save_heatmap(proj.weight.grad.cpu().numpy(), f'Projection {i} Gradients (Iter {iter_num})', filename)
+            
+            if 'attention_tensor' in flat_stats:
+                filename = f'heatmaps/attention_tensor_iter_{iter_num}.png'
+                create_and_save_heatmap(flat_stats['attention_tensor'].cpu().numpy(), f'Attention Tensor (Iter {iter_num})', filename)
+
+        # Log per iteration stats
+        if iter_num % 100 == 0:  # Only log detailed stats every 100 iterations
+            print(f"Iter {iter_num} Stats:")
+            for key, value in flat_stats.items():
+                if isinstance(value, torch.Tensor):
+                    if value.numel() == 1:
+                        print(f"  {key}: {value.item():.4f}")
+                    else:
+                        print(f"  {key}: tensor of shape {value.shape}")
+                elif isinstance(value, (int, float)):
+                    print(f"  {key}: {value:.4f}")
+                else:
+                    print(f"  {key}: {value}")
+
+        # Aggregate stats
+        for key, value in flat_stats.items():
+            if key not in stats_window:
+                stats_window[key] = 0.0
+            stats_window[key] += value
+        current_window += 1
+        
+        # Aggregate and log every 'window_size' iterations
+        if current_window >= window_size:
+            averaged_stats = {k: v / window_size for k, v in stats_window.items()}
+            print(f"Average Stats over last {window_size} iterations:")
+            for key, value in averaged_stats.items():
+                if isinstance(value, torch.Tensor):
+                    if value.numel() == 1:
+                        print(f"  {key}: {value.item():.4f}")
+                    else:
+                        print(f"  {key}: tensor of shape {value.shape}")
+                elif isinstance(value, (int, float)):
+                    print(f"  {key}: {value:.4f}")
+                else:
+                    print(f"  {key}: {value}")
+            stats_window = {k: 0.0 for k in stats_window}
+            current_window = 0
+
     iter_num += 1
     local_iter_num += 1
 
