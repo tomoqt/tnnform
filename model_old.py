@@ -44,26 +44,20 @@ class TrueHigherOrderAttention(nn.Module):
     def __init__(self, config, extract_stats=False):
         super().__init__()
         assert config.n_embd % config.n_head == 0
-
+        
         self.n_head = config.n_head
         self.n_embd = config.n_embd
         self.dropout = config.dropout
         self.attention_order = config.attention_order
         self.head_dim = config.n_embd // config.n_head
         self.scale = 1.0 / math.sqrt(self.head_dim)  # Normal scaling
-
-        # Projections for Q and Ks
+        
+        # Projections for each tensor
         self.projections = nn.ModuleList([
-            nn.Linear(config.n_embd, config.n_embd, bias=config.bias)
+            nn.Linear(config.n_embd, config.n_embd, bias=config.bias) 
             for _ in range(self.attention_order)
         ])
-
-        # Value projections for hierarchical contractions (excluding the last one)
-        self.value_projections = nn.ModuleList([
-            nn.Linear(self.head_dim, self.head_dim, bias=config.bias)
-            for _ in range(self.attention_order - 1)
-        ])
-
+        
         # Output projection
         self.c_proj = nn.Linear(config.n_embd, config.n_embd, bias=config.bias)
 
@@ -71,69 +65,44 @@ class TrueHigherOrderAttention(nn.Module):
         self.attn_dropout = nn.Dropout(config.dropout)
         self.resid_dropout = nn.Dropout(config.dropout)
 
+        # Flash attention support
+        self.flash = hasattr(torch.nn.functional, 'scaled_dot_product_attention')
+        if not self.flash:
+            print("WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0")
+            self.register_buffer("bias", torch.tril(torch.ones(config.block_size, config.block_size))
+                                        .view(1, 1, config.block_size, config.block_size))
+
         self.extract_stats = extract_stats
 
     def forward(self, x):
         B, T, C = x.size()
-
-        # Compute projections
+        
+        
+        # Compute projections and collect stats only if extract_stats is True
         projs = []
-        for proj in self.projections:
-            p = proj(x).view(B, T, self.n_head, self.head_dim).transpose(1, 2)  # (B, nh, T, hs)
+        proj_stats = {}
+        for i, proj in enumerate(self.projections):
+            p = proj(x).view(B, T, self.n_head, self.head_dim).permute(0, 2, 1, 3)
             projs.append(p)
-
-        # Compute higher-order attention
+            if self.extract_stats:
+                proj_stats[f'proj_{i}_mean'] = p.mean().item()
+                proj_stats[f'proj_{i}_std'] = p.std().item()
+                proj_stats[f'proj_{i}_max'] = p.max().item()
+                proj_stats[f'proj_{i}_min'] = p.min().item()
+        
+        # Compute higher-order attention and collect stats
         y, att_stats = self.true_higher_order_attention(projs)
-
+    
+        
         y = y.transpose(1, 2).contiguous().view(B, T, C)
         y = self.resid_dropout(self.c_proj(y))
+        
 
-        # Return output and stats
-        stats = att_stats if self.extract_stats else {}
+        
+        # Combine all stats only if extract_stats is True
+        stats = {**proj_stats, **att_stats} if self.extract_stats else {}
+        
         return y, stats
-
-    def true_higher_order_attention(self, projs):
-        B, nh, T, hs = projs[0].shape
-        attention_order = self.attention_order
-
-        # Initial attention between Q and first K
-        att = torch.einsum('bhid,bhjd->bhij', projs[0], projs[1]) * self.scale
-        mask = torch.tril(torch.ones(T, T, device=projs[0].device)).unsqueeze(0).unsqueeze(0)
-        att = att.masked_fill(mask == 0, float('-inf'))
-        att = F.softmax(att, dim=-1)
-        att = self.attn_dropout(att)
-
-        # Hierarchical contractions
-        for idx in range(2, attention_order):
-            key = projs[idx]  # Next key
-            value_proj = self.value_projections[idx - 2]  # Corresponding V projection
-
-            # Expand attention tensor to include new dimension
-            att = torch.einsum('bhij,bhjd->bhijd', att, key)  # (B, nh, T, T, hs)
-            att = att.view(B, nh, T, -1)  # Flatten for softmax
-            att = F.softmax(att, dim=-1)
-            att = self.attn_dropout(att)
-            att = att.view(B, nh, T, T, hs)  # Reshape back
-
-            # Contract with value projection
-            V = value_proj(key)  # Apply value projection
-            att = torch.einsum('bhijd,bhjd->bhid', att, V)
-
-        # Final output
-        y = att  # Shape: (B, nh, T, hs)
-
-        # Collect stats if needed
-        stats = {}
-        if self.extract_stats:
-            stats = {
-                'attention_tensor_mean': y.mean().item(),
-                'attention_tensor_std': y.std().item(),
-                'attention_tensor_max': y.max().item(),
-                'attention_tensor_min': y.min().item()
-            }
-
-        return y, stats
-
 
     def true_higher_order_attention(self, projs):
         B, nh, T, hs = projs[0].shape
@@ -145,7 +114,7 @@ class TrueHigherOrderAttention(nn.Module):
         
         # First contraction: compute attention tensor
         att = torch.einsum(eq, *projs) * self.scale
-        #print(att)
+        print(att)
         # Apply causal mask and softmax
         mask = generate_causal_mask(T, self.attention_order, projs[0].device)
         att = att.masked_fill(mask == 0, float('-inf'))
@@ -166,6 +135,7 @@ class TrueHigherOrderAttention(nn.Module):
         # Construct final contraction equation
         key_indices = input_dims[1:]  # Exclude query index 'i'
         final_eq = f"bh{input_dims}, bh{key_indices}d -> bhid"
+        print(final_eq)
         # Perform the final contraction
         y = torch.einsum(final_eq, att, v)
         
