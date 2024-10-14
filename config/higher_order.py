@@ -9,7 +9,7 @@ out_dir = 'out-shakespeare'
 eval_interval = 100  # keep frequent because we'll overfit
 eval_iters = 10
 log_interval = 1  # don't print too too often
-
+attention_orders = [3]
 # Checkpointing
 # We expect to overfit on this small dataset, so always save checkpoints
 always_save_checkpoint = True
@@ -28,7 +28,7 @@ block_size = 196  # context of up to 196 previous characters
 # Model Architecture
 n_layer = 3
 n_head = 1
-n_embd = 384
+n_embd = 12
 dropout = 0.0
 bias = False
 
@@ -39,7 +39,7 @@ window_size = 16  # Window size for sparse attention
 sparse_attention = [True, False, True]  # Specify which heads use sparse attention
 
 # Optimizer and Learning Rate Configuration
-learning_rate = 1e-4  # with baby networks can afford to go a bit higher
+learning_rate = 0.0005 # with baby networks can afford to go a bit higher
 max_iters = 5000
 lr_decay_iters = 5000  # make equal to max_iters usually
 min_lr = 1e-7  # learning_rate / 10 usually

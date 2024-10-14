@@ -6,3 +6,6 @@ tiktoken
 wandb
 tqdm
 matplotlib
+tednet
+tensorly-torch
+tensorly

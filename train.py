@@ -84,21 +84,24 @@ compile = True # use PyTorch 2.0 to compile the model to be faster
 parser = argparse.ArgumentParser()
 parser.add_argument('--verbose_logging', action='store_true', help='Enable verbose logging')
 parser.add_argument('--extract_stats', action='store_true', help='Extract and log detailed statistics (slows down training)')
+parser.add_argument('--attention_orders', type=str, default='2', help='Comma-separated list of attention orders for each head')
 args, _ = parser.parse_known_args()
 verbose_logging = args.verbose_logging
 extract_stats = args.extract_stats
+attention_orders = [int(order) for order in args.attention_orders.split(',')]
 
 # ... (rest of the configurations)
 
-# Modify this line
+# Modify this line to include attention_orders
 config_keys = [k for k,v in globals().items() if not k.startswith('_') and isinstance(v, (int, float, bool, str))]
-config_keys.extend(['verbose_logging', 'extract_stats'])
+config_keys.extend(['verbose_logging', 'extract_stats', 'attention_orders'])
 
 exec(open('configurator.py').read()) # overrides from command line or config file
 
-# Add verbose_logging and extract_stats to globals
+# Add attention_orders to globals
 globals()['verbose_logging'] = verbose_logging
 globals()['extract_stats'] = extract_stats
+globals()['attention_orders'] = attention_orders
 
 config = {k: globals()[k] for k in config_keys} # will be useful for logging
 
@@ -171,7 +174,7 @@ if os.path.exists(meta_path):
 
 # model init
 model_args = dict(n_layer=n_layer, n_head=n_head, n_embd=n_embd, block_size=block_size,
-                  bias=bias, vocab_size=None, dropout=dropout, attention_order=attention_order) # start with model_args from command line
+                  bias=bias, vocab_size=None, dropout=dropout, attention_orders=attention_orders) # start with model_args from command line
 if init_from == 'scratch':
     # init a new model from scratch
     print("Initializing a new model from scratch")
@@ -272,12 +275,11 @@ if wandb_log and master_process:
     wandb.init(project=wandb_project, name=wandb_run_name, config=config)
     wandb.watch(model, log="all", log_freq=log_interval)
     n_params = model.get_num_params()
-    attention_order = model.config.attention_order
     print(f"Number of parameters: {n_params:,}")
-    print(f"Attention order: {attention_order}")
+    print(f"Attention orders: {attention_orders}")
     wandb.log({
         "n_params": n_params,
-        "attention_order": attention_order
+        "attention_orders": attention_orders
     }, step=iter_num)
 
 # Add this function to create and save heatmap images locally
@@ -291,6 +293,16 @@ def create_and_save_heatmap(data, title, filename):
 
 # Create a directory to store heatmap images
 os.makedirs('heatmaps', exist_ok=True)
+
+# Add this function after the create_and_save_heatmap function
+def log_gradients_to_wandb(model):
+    gradient_dict = {}
+    for name, param in model.named_parameters():
+        if param.grad is not None:
+            gradient_dict[f"gradients/{name}_norm"] = param.grad.norm().item()
+            gradient_dict[f"gradients/{name}_mean"] = param.grad.mean().item()
+            gradient_dict[f"gradients/{name}_std"] = param.grad.std().item()
+    return gradient_dict
 
 # training loop
 X, Y = get_batch('train')
@@ -333,16 +345,15 @@ while True:
                     'best_val_loss': best_val_loss,
                     'config': config,
                 }
-                attention_order = 3#model.config.attention_order
-                checkpoint_name = f'ckpt_order_{attention_order}_new.pt'
+                attention_orders_str = '_'.join(map(str, attention_orders))
+                checkpoint_name = f'ckpt_orders_{attention_orders_str}.pt'
                 print(f"saving checkpoint to {out_dir}/{checkpoint_name}")
-                #torch.save(checkpoint, os.path.join(out_dir, checkpoint_name))
+                torch.save(checkpoint, os.path.join(out_dir, checkpoint_name))
 
-               # if wandb_log:
-                   # wandb.save(os.path.join(out_dir, checkpoint_name))
-                    #artifact = wandb.Artifact(name=f"model_checkpoint_{attention_order}", type="model")
-                    #artifact.add_file(os.path.join(out_dir, checkpoint_name))
-                    #wandb.log_artifact(artifact)
+                if wandb_log:
+                    artifact = wandb.Artifact(name=f"model_checkpoint_{attention_orders_str}", type="model")
+                    artifact.add_file(os.path.join(out_dir, checkpoint_name))
+                    wandb.log_artifact(artifact)
     if iter_num == 0 and eval_only:
         break
 
@@ -359,16 +370,6 @@ while True:
         X, Y = get_batch('train')
         scaler.scale(loss).backward()
         
-        # Collect gradient statistics
-        if master_process and wandb_log and extract_stats:
-            with torch.no_grad():
-                for name, param in model.named_parameters():
-                    if param.grad is not None:
-                        all_stats[f'{name}_grad_mean'] = param.grad.mean().item()
-                        all_stats[f'{name}_grad_std'] = param.grad.std().item()
-                        all_stats[f'{name}_grad_max'] = param.grad.max().item()
-                        all_stats[f'{name}_grad_min'] = param.grad.min().item()
-
     # clip the gradient
     if grad_clip != 0.0:
         scaler.unscale_(optimizer)
@@ -392,12 +393,19 @@ while True:
             running_mfu = mfu if running_mfu == -1.0 else 0.9*running_mfu + 0.1*mfu
         print(f"iter {iter_num}: loss {lossf:.4f}, time {dt*1000:.2f}ms, mfu {running_mfu*100:.2f}%")
         if wandb_log and iter_num % wandb_log_freq == 0:
-            wandb.log({
+            log_dict = {
                 "iter": iter_num,
                 "train/loss": lossf,
                 "lr": lr,
                 "mfu": running_mfu,
-            })
+            }
+            
+            # Add gradient logging
+            if extract_stats:
+                gradient_dict = log_gradients_to_wandb(raw_model)
+                log_dict.update(gradient_dict)
+            
+            wandb.log(log_dict)
 
     # Verbose logging (only if enabled)
     if verbose_logging and master_process and extract_stats:

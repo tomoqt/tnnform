@@ -11,19 +11,12 @@ import math
 import inspect
 from dataclasses import dataclass
 import sys
-import tltorch  # Import TensorLy-Torch
+
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
 from torch.nn.utils import weight_norm
 import itertools
-from tltorch.factorized_tensors import TuckerTensor
-from tensorly.tenalg import multi_mode_dot
-import logging
-
-# Set up logging
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger(__name__)
 
 def generate_causal_mask(T, attention_order, device):
     # Generate all possible index combinations
@@ -47,15 +40,6 @@ class LayerNorm(nn.Module):
     def forward(self, input):
         return F.layer_norm(input, self.weight.shape, self.weight, self.bias, 1e-5)
 
-
-
-import math
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import tltorch  # Import TensorLy-Torch
-from tltorch.factorized_tensors import TuckerTensor
-
 class TrueHigherOrderAttention(nn.Module):
     def __init__(self, config, extract_stats=False):
         super().__init__()
@@ -66,26 +50,19 @@ class TrueHigherOrderAttention(nn.Module):
         self.dropout = config.dropout
         self.attention_order = config.attention_order
         self.head_dim = config.n_embd // config.n_head
-        self.scale = 1.0 / math.sqrt(self.head_dim)
-        self.rank = config.rank  # Use the rank from config
+        self.scale = 1.0 / math.sqrt(self.head_dim)  # Normal scaling
 
-        # Projections (factors) for queries
-        self.query_factors = nn.ParameterList([
-            nn.Parameter(torch.randn(self.head_dim, self.rank))
+        # Projections for Q and Ks
+        self.projections = nn.ModuleList([
+            nn.Linear(config.n_embd, config.n_embd, bias=config.bias)
             for _ in range(self.attention_order)
         ])
 
-        # Core tensor for queries
-        self.query_core = nn.Parameter(torch.randn(*([self.rank] * self.attention_order)))
-
-        # Projections (factors) for values
-        self.value_factors = nn.ParameterList([
-            nn.Parameter(torch.randn(self.head_dim, self.rank))
+        # Value projections for each K (excluding Q)
+        self.value_projections = nn.ModuleList([
+            nn.Linear(self.head_dim, self.head_dim, bias=config.bias)
             for _ in range(self.attention_order - 1)
         ])
-
-        # Core tensor for values
-        self.value_core = nn.Parameter(torch.randn(*([self.rank] * (self.attention_order - 1))))
 
         # Output projection
         self.c_proj = nn.Linear(config.n_embd, config.n_embd, bias=config.bias)
@@ -95,37 +72,18 @@ class TrueHigherOrderAttention(nn.Module):
         self.resid_dropout = nn.Dropout(config.dropout)
 
         self.extract_stats = extract_stats
-        logger.debug(f"Initialized TrueHigherOrderAttention with config: {config}")
 
     def forward(self, x):
-        logger.debug(f"Forward called with input shape: {x.shape}")
         B, T, C = x.size()
-        nh = self.n_head
-        hs = self.head_dim
-        rank = self.rank
 
-        # Reshape x for multi-head attention
-        x = x.view(B, T, nh, hs).transpose(1, 2)  # x shape: (B, nh, T, hs)
+        # Compute projections
+        projs = []
+        for proj in self.projections:
+            p = proj(x).view(B, T, self.n_head, self.head_dim).transpose(1, 2)  # (B, nh, T, hs)
+            projs.append(p)
 
-        # Compute projections for queries using pre-defined factors
-        query_projections = []
-        for i, factor in enumerate(self.query_factors):
-            # Corrected einsum equation
-            p = torch.einsum('bnth,hr->bntr', x, factor)
-            query_projections.append(p)  # p: (B, nh, T, rank)
-            logger.debug(f"Query projection {i} shape: {p.shape}")
-
-        # Compute projections for values using pre-defined factors
-        value_projections = []
-        for i, factor in enumerate(self.value_factors):
-            v = torch.einsum('bnth,hr->bntr', x, factor)
-            value_projections.append(v)  # v: (B, nh, T, rank)
-            logger.debug(f"Value projection {i} shape: {v.shape}")
-
-        # Compute higher-order attention using Tucker tensor factorization
-        logger.debug("Calling tucker_higher_order_attention")
-        y, att_stats = self.tucker_higher_order_attention(query_projections, value_projections)
-        logger.debug(f"tucker_higher_order_attention returned output shape: {y.shape}")
+        # Compute higher-order attention
+        y, att_stats = self.true_higher_order_attention(projs)
 
         y = y.transpose(1, 2).contiguous().view(B, T, C)
         y = self.resid_dropout(self.c_proj(y))
@@ -134,58 +92,52 @@ class TrueHigherOrderAttention(nn.Module):
         stats = att_stats if self.extract_stats else {}
         return y, stats
 
-    def tucker_higher_order_attention(self, query_projections, value_projections):
-        logger.debug(f"tucker_higher_order_attention called with query_projections len: {len(query_projections)}, value_projections len: {len(value_projections)}")
-        B, nh, T, rank = query_projections[0].shape
+    def true_higher_order_attention(self, projs):
+        B, nh, T, hs = projs[0].shape
         attention_order = self.attention_order
-        batch_head = B * nh
 
-        # Prepare query factors
-        query_factors = []
-        for p in query_projections:
-            # Combine batch and head dimensions
-            p = p.view(batch_head, T, rank)
-            # Transpose to get factors of shape (T, batch_head * rank)
-            f = p.transpose(0, 1).contiguous().view(T, -1)
-            query_factors.append(f)
-            logger.debug(f"Query factor shape: {f.shape}")
+        # Compute initial attention scores between Q and K1
+        att = torch.einsum('bhid,bhjd->bhij', projs[0], projs[1]) * self.scale  # (B, nh, T, T)
 
-        # Prepare value factors similarly
-        value_factors = []
-        for v in value_projections:
-            v = v.view(batch_head, T, rank)
-            f = v.transpose(0, 1).contiguous().view(T, -1)
-            value_factors.append(f)
-            logger.debug(f"Value factor shape: {f.shape}")
+        # Expand attention tensor by contracting with additional Ks
+        for idx in range(2, attention_order):
+            key = projs[idx]  # Next key
+            # Expand att to include new dimension
+            att = torch.einsum('bh...i,bhkd->bh...ik', att, key)  # Expand to (B, nh, T, T, ..., T)
 
-        # Adjust core tensor shapes
-        self.query_core = nn.Parameter(torch.randn(*([self.rank] * attention_order)))
-        self.value_core = nn.Parameter(torch.randn(*([self.rank] * (attention_order - 1))))
+        # Apply causal mask
+        causal_mask = generate_causal_mask(T, attention_order, projs[0].device)  # Shape: (T, T, ..., T)
+        causal_mask = causal_mask.unsqueeze(0).unsqueeze(0)  # (1, 1, T, T, ..., T)
+        att = att.masked_fill(causal_mask == 0, float('-inf'))
 
-        # Create Tucker tensors
-        try:
-            query_tucker = TuckerTensor(core=self.query_core, factors=query_factors)
-            value_tucker = TuckerTensor(core=self.value_core, factors=value_factors)
-        except Exception as e:
-            logger.error(f"Error creating TuckerTensor: {str(e)}")
-            raise
+        # Flatten attention tensor for softmax
+        att = att.view(B, nh, T, -1)  # Shape: (B, nh, T, N), where N = T^(attention_order - 1)
 
-        # Proceed with your attention computations
-        Q = query_tucker.to_tensor()  # Reconstructs the tensor
-        V = value_tucker.to_tensor()
+        # Apply softmax over the last dimension
+        att = F.softmax(att, dim=-1)
+        att = self.attn_dropout(att)
 
-        # Reshape Q and V back to appropriate shapes for attention computations
-        # Adjust these based on how you wish to compute the attention scores
-        Q = Q.view(batch_head, T, -1)
-        V = V.view(batch_head, T, -1)
+        # Build large V tensor
+        # Get Vs from the keys (excluding Q)
+        Vs = [self.value_projections[i](projs[i+1]) for i in range(attention_order - 1)]
 
-        # Compute attention scores and outputs
-        attn_scores = torch.bmm(Q, Q.transpose(1, 2)) * self.scale
-        attn_probs = F.softmax(attn_scores, dim=-1)
-        attn_probs = self.attn_dropout(attn_probs)
+        # Reshape Vs to align dimensions
+        Vs_reshaped = []
+        for i, V in enumerate(Vs):
+            # Shape: (B, nh, [1]*i, T, [1]*(attention_order - 2 - i), hs)
+            shape = [B, nh] + [1]*i + [T] + [1]*(attention_order - 2 - i) + [hs]
+            Vs_reshaped.append(V.view(*shape))
 
-        y = torch.bmm(attn_probs, V)
-        y = y.view(B, nh, T, -1)
+        # Compute the element-wise product to form the large V tensor
+        V = Vs_reshaped[0]
+        for V_i in Vs_reshaped[1:]:
+            V = V * V_i  # Element-wise multiplication with broadcasting
+
+        # Flatten V to match the dimensions of att
+        V = V.view(B, nh, -1, hs)  # Shape: (B, nh, N, hs)
+
+        # Compute output by contracting att with V
+        y = torch.einsum('bhij,bhjd->bhid', att, V)  # Output shape: (B, nh, T, hs)
 
         # Collect stats if needed
         stats = {}
@@ -197,7 +149,6 @@ class TrueHigherOrderAttention(nn.Module):
                 'attention_tensor_min': y.min().item()
             }
 
-        logger.debug(f"Returning output with shape: {y.shape}")
         return y, stats
 
 
@@ -253,9 +204,7 @@ class GPTConfig:
     dropout: float = 0.0
     bias: bool = True # True: bias in Linears and LayerNorms, like GPT-2. False: a bit better and faster
     attention_orders: list = None  # New parameter for per-head attention orders
-    attention_order: int = 3
-    rank: int = 64  # Add this line
-
+    attention_order: int = 4
     def __post_init__(self):
         if self.attention_orders is None:
             # Default: homogeneously distribute between 2 and max_order

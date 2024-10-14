@@ -138,54 +138,31 @@ class TrueHigherOrderAttention(nn.Module):
         logger.debug(f"tucker_higher_order_attention called with query_projections len: {len(query_projections)}, value_projections len: {len(value_projections)}")
         B, nh, T, rank = query_projections[0].shape
         attention_order = self.attention_order
-        batch_head = B * nh
 
-        # Prepare query factors
-        query_factors = []
-        for p in query_projections:
-            # Combine batch and head dimensions
-            p = p.view(batch_head, T, rank)
-            # Transpose to get factors of shape (T, batch_head * rank)
-            f = p.transpose(0, 1).contiguous().view(T, -1)
-            query_factors.append(f)
-            logger.debug(f"Query factor shape: {f.shape}")
+        # Reshape projections for TuckerTensor
+        # Each factor should be of shape (B, nh, rank, T)
+        query_factors = [p.permute(0, 1, 3, 2) for p in query_projections]
+        value_factors = [v.permute(0, 1, 3, 2) for v in value_projections]
 
-        # Prepare value factors similarly
-        value_factors = []
-        for v in value_projections:
-            v = v.view(batch_head, T, rank)
-            f = v.transpose(0, 1).contiguous().view(T, -1)
-            value_factors.append(f)
-            logger.debug(f"Value factor shape: {f.shape}")
+        #logger.debug(f"Query factors shapes: {[f.shape for f in query_factors]}")
+        #logger.debug(f"Value factors shapes: {[f.shape for f in value_factors]}")
 
-        # Adjust core tensor shapes
-        self.query_core = nn.Parameter(torch.randn(*([self.rank] * attention_order)))
-        self.value_core = nn.Parameter(torch.randn(*([self.rank] * (attention_order - 1))))
+        # Create the Tucker tensors for queries and values
+        query_tucker = TuckerTensor(core=self.query_core, factors=query_factors)
+        value_tucker = TuckerTensor(core=self.value_core, factors=value_factors)
 
-        # Create Tucker tensors
-        try:
-            query_tucker = TuckerTensor(core=self.query_core, factors=query_factors)
-            value_tucker = TuckerTensor(core=self.value_core, factors=value_factors)
-        except Exception as e:
-            logger.error(f"Error creating TuckerTensor: {str(e)}")
-            raise
-
-        # Proceed with your attention computations
-        Q = query_tucker.to_tensor()  # Reconstructs the tensor
+        # Compute the approximate tensors without fully reconstructing them
+        Q = query_tucker.to_tensor()
+        K = Q  # In self-attention, queries and keys are the same
         V = value_tucker.to_tensor()
 
-        # Reshape Q and V back to appropriate shapes for attention computations
-        # Adjust these based on how you wish to compute the attention scores
-        Q = Q.view(batch_head, T, -1)
-        V = V.view(batch_head, T, -1)
-
-        # Compute attention scores and outputs
-        attn_scores = torch.bmm(Q, Q.transpose(1, 2)) * self.scale
+        # Compute attention scores
+        attn_scores = torch.einsum('bntr,bnsr->bnts', Q, K) * self.scale
         attn_probs = F.softmax(attn_scores, dim=-1)
         attn_probs = self.attn_dropout(attn_probs)
 
-        y = torch.bmm(attn_probs, V)
-        y = y.view(B, nh, T, -1)
+        # Compute the output
+        y = torch.einsum('bnts,bnsr->bntr', attn_probs, V)
 
         # Collect stats if needed
         stats = {}

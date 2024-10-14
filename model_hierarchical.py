@@ -11,19 +11,12 @@ import math
 import inspect
 from dataclasses import dataclass
 import sys
-import tltorch  # Import TensorLy-Torch
+
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
 from torch.nn.utils import weight_norm
 import itertools
-from tltorch.factorized_tensors import TuckerTensor
-from tensorly.tenalg import multi_mode_dot
-import logging
-
-# Set up logging
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger(__name__)
 
 def generate_causal_mask(T, attention_order, device):
     # Generate all possible index combinations
@@ -47,15 +40,6 @@ class LayerNorm(nn.Module):
     def forward(self, input):
         return F.layer_norm(input, self.weight.shape, self.weight, self.bias, 1e-5)
 
-
-
-import math
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import tltorch  # Import TensorLy-Torch
-from tltorch.factorized_tensors import TuckerTensor
-
 class TrueHigherOrderAttention(nn.Module):
     def __init__(self, config, extract_stats=False):
         super().__init__()
@@ -64,28 +48,18 @@ class TrueHigherOrderAttention(nn.Module):
         self.n_head = config.n_head
         self.n_embd = config.n_embd
         self.dropout = config.dropout
-        self.attention_order = config.attention_order
+        self.attention_orders = config.attention_orders
         self.head_dim = config.n_embd // config.n_head
-        self.scale = 1.0 / math.sqrt(self.head_dim)
-        self.rank = config.rank  # Use the rank from config
+        self.scale = 1.0 / math.sqrt(self.head_dim)  # Normal scaling
 
-        # Projections (factors) for queries
-        self.query_factors = nn.ParameterList([
-            nn.Parameter(torch.randn(self.head_dim, self.rank))
-            for _ in range(self.attention_order)
-        ])
-
-        # Core tensor for queries
-        self.query_core = nn.Parameter(torch.randn(*([self.rank] * self.attention_order)))
-
-        # Projections (factors) for values
-        self.value_factors = nn.ParameterList([
-            nn.Parameter(torch.randn(self.head_dim, self.rank))
-            for _ in range(self.attention_order - 1)
-        ])
-
-        # Core tensor for values
-        self.value_core = nn.Parameter(torch.randn(*([self.rank] * (self.attention_order - 1))))
+        # Projections for each head and attention order
+        self.projections = nn.ModuleList()
+        for h in range(self.n_head):
+            head_projections = nn.ModuleList([
+                nn.Linear(self.head_dim, self.head_dim, bias=config.bias)
+                for _ in range(self.attention_orders[h])
+            ])
+            self.projections.append(head_projections)
 
         # Output projection
         self.c_proj = nn.Linear(config.n_embd, config.n_embd, bias=config.bias)
@@ -95,111 +69,95 @@ class TrueHigherOrderAttention(nn.Module):
         self.resid_dropout = nn.Dropout(config.dropout)
 
         self.extract_stats = extract_stats
-        logger.debug(f"Initialized TrueHigherOrderAttention with config: {config}")
 
     def forward(self, x):
-        logger.debug(f"Forward called with input shape: {x.shape}")
         B, T, C = x.size()
-        nh = self.n_head
-        hs = self.head_dim
-        rank = self.rank
 
-        # Reshape x for multi-head attention
-        x = x.view(B, T, nh, hs).transpose(1, 2)  # x shape: (B, nh, T, hs)
+        # Reshape x to (B, T, n_head, head_dim)
+        x = x.view(B, T, self.n_head, self.head_dim)
 
-        # Compute projections for queries using pre-defined factors
-        query_projections = []
-        for i, factor in enumerate(self.query_factors):
-            # Corrected einsum equation
-            p = torch.einsum('bnth,hr->bntr', x, factor)
-            query_projections.append(p)  # p: (B, nh, T, rank)
-            logger.debug(f"Query projection {i} shape: {p.shape}")
+        # Initialize list to store outputs per head
+        ys = []
+        attn_stats = {}
 
-        # Compute projections for values using pre-defined factors
-        value_projections = []
-        for i, factor in enumerate(self.value_factors):
-            v = torch.einsum('bnth,hr->bntr', x, factor)
-            value_projections.append(v)  # v: (B, nh, T, rank)
-            logger.debug(f"Value projection {i} shape: {v.shape}")
+        # For each head
+        for h in range(self.n_head):
+            x_h = x[:, :, h, :]  # Shape: (B, T, head_dim)
 
-        # Compute higher-order attention using Tucker tensor factorization
-        logger.debug("Calling tucker_higher_order_attention")
-        y, att_stats = self.tucker_higher_order_attention(query_projections, value_projections)
-        logger.debug(f"tucker_higher_order_attention returned output shape: {y.shape}")
+            # Get projections for this head
+            head_projections = self.projections[h]
+            projs = []
+            proj_stats = {}
+            for i, proj in enumerate(head_projections):
+                p = proj(x_h)  # Shape: (B, T, head_dim)
+                projs.append(p)
+                if self.extract_stats:
+                    proj_stats[f'head_{h}_proj_{i}_mean'] = p.mean().item()
+                    proj_stats[f'head_{h}_proj_{i}_std'] = p.std().item()
+                    proj_stats[f'head_{h}_proj_{i}_max'] = p.max().item()
+                    proj_stats[f'head_{h}_proj_{i}_min'] = p.min().item()
 
-        y = y.transpose(1, 2).contiguous().view(B, T, C)
+            # Compute higher-order attention for this head
+            y_h, head_att_stats = self.true_higher_order_attention_per_head(projs, self.attention_orders[h])
+            ys.append(y_h)
+
+            if self.extract_stats:
+                attn_stats.update(proj_stats)
+                attn_stats.update({f'head_{h}_{k}': v for k, v in head_att_stats.items()})
+
+        # Concatenate outputs from all heads
+        y = torch.cat(ys, dim=-1)  # Shape: (B, T, n_head * head_dim)
+
         y = self.resid_dropout(self.c_proj(y))
 
-        # Return output and stats
-        stats = att_stats if self.extract_stats else {}
-        return y, stats
+        return y, attn_stats if self.extract_stats else y
 
-    def tucker_higher_order_attention(self, query_projections, value_projections):
-        logger.debug(f"tucker_higher_order_attention called with query_projections len: {len(query_projections)}, value_projections len: {len(value_projections)}")
-        B, nh, T, rank = query_projections[0].shape
-        attention_order = self.attention_order
-        batch_head = B * nh
+    def true_higher_order_attention_per_head(self, projs, attention_order):
+        B, T, hs = projs[0].shape
+        # Number of projections should be equal to attention_order
+        assert len(projs) == attention_order
 
-        # Prepare query factors
-        query_factors = []
-        for p in query_projections:
-            # Combine batch and head dimensions
-            p = p.view(batch_head, T, rank)
-            # Transpose to get factors of shape (T, batch_head * rank)
-            f = p.transpose(0, 1).contiguous().view(T, -1)
-            query_factors.append(f)
-            logger.debug(f"Query factor shape: {f.shape}")
+        # Generate input dimensions for einsum
+        input_dims = ''.join([chr(ord('i') + idx) for idx in range(attention_order)])
+        eq = f"{','.join([f'bt{c}' for c in input_dims])}->bt{input_dims}"
 
-        # Prepare value factors similarly
-        value_factors = []
-        for v in value_projections:
-            v = v.view(batch_head, T, rank)
-            f = v.transpose(0, 1).contiguous().view(T, -1)
-            value_factors.append(f)
-            logger.debug(f"Value factor shape: {f.shape}")
+        # Compute attention tensor
+        att = torch.einsum(eq, *projs) * self.scale
 
-        # Adjust core tensor shapes
-        self.query_core = nn.Parameter(torch.randn(*([self.rank] * attention_order)))
-        self.value_core = nn.Parameter(torch.randn(*([self.rank] * (attention_order - 1))))
+        # Apply causal mask
+        mask = generate_causal_mask(T, attention_order, projs[0].device)
+        att = att.masked_fill(mask == 0, float('-inf'))
 
-        # Create Tucker tensors
-        try:
-            query_tucker = TuckerTensor(core=self.query_core, factors=query_factors)
-            value_tucker = TuckerTensor(core=self.value_core, factors=value_factors)
-        except Exception as e:
-            logger.error(f"Error creating TuckerTensor: {str(e)}")
-            raise
+        # Reshape for softmax
+        att = att.view(B, T, -1)
+        att = F.softmax(att, dim=-1)
+        att = att.view(B, T, *([T] * (attention_order - 1)))
 
-        # Proceed with your attention computations
-        Q = query_tucker.to_tensor()  # Reconstructs the tensor
-        V = value_tucker.to_tensor()
+        att = self.attn_dropout(att)
 
-        # Reshape Q and V back to appropriate shapes for attention computations
-        # Adjust these based on how you wish to compute the attention scores
-        Q = Q.view(batch_head, T, -1)
-        V = V.view(batch_head, T, -1)
+        # Prepare value tensor (v)
+        v = projs[-1]  # (B, T, hs)
+        for _ in range(attention_order - 2):
+            v = v.unsqueeze(2)
+        v = v.expand(-1, -1, *([T] * (attention_order - 2)), -1)
 
-        # Compute attention scores and outputs
-        attn_scores = torch.bmm(Q, Q.transpose(1, 2)) * self.scale
-        attn_probs = F.softmax(attn_scores, dim=-1)
-        attn_probs = self.attn_dropout(attn_probs)
+        # Final contraction
+        key_indices = input_dims[1:]
+        final_eq = f"bt{input_dims}, bt{key_indices}h -> bth"
 
-        y = torch.bmm(attn_probs, V)
-        y = y.view(B, nh, T, -1)
+        y = torch.einsum(final_eq, att, v)  # (B, T, hs)
 
         # Collect stats if needed
         stats = {}
         if self.extract_stats:
             stats = {
-                'attention_tensor_mean': y.mean().item(),
-                'attention_tensor_std': y.std().item(),
-                'attention_tensor_max': y.max().item(),
-                'attention_tensor_min': y.min().item()
+                'attention_tensor_mean': att.mean().item(),
+                'attention_tensor_std': att.std().item(),
+                'attention_tensor_max': att.max().item(),
+                'attention_tensor_min': att.min().item()
             }
 
-        logger.debug(f"Returning output with shape: {y.shape}")
         return y, stats
-
 
 
 
@@ -253,13 +211,11 @@ class GPTConfig:
     dropout: float = 0.0
     bias: bool = True # True: bias in Linears and LayerNorms, like GPT-2. False: a bit better and faster
     attention_orders: list = None  # New parameter for per-head attention orders
-    attention_order: int = 3
-    rank: int = 64  # Add this line
-
+    attention_order: int = 4
     def __post_init__(self):
         if self.attention_orders is None:
             # Default: homogeneously distribute between 2 and max_order
-            max_order = max(2, self.attention_order)  # Ensure at least order 2
+            max_order = max(2, self.attention_order)
             self.attention_orders = [((i % (max_order - 1)) + 2) for i in range(self.n_head)]
         else:
             assert len(self.attention_orders) == self.n_head, "Length of attention_orders must match n_head"
